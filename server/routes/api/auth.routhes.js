@@ -40,7 +40,10 @@ router.post('/signup', (req, res, next) => {
     const newUser = new User({
       username: username,
       password: hashPass,
-      picture
+      picture,
+      gender,
+      preference,
+      quizValue 
     });
 
     newUser.save(err => {
@@ -117,5 +120,18 @@ router.post('/upload', uploader.single('picture'), (req, res) => {
     res.status(500).json({ message: 'Something went wrong' });
   }
 })
+
+
+router.put("/quiz/:quizValue", (req, res, next) => {
+  const { id } = req.params;
+  User.findByIdAndUpdate(
+    req.params.quizValue,
+    {
+      quizValue: req.body.quizValue,
+    },
+    { new: true }
+  ).then(userUpdated => res.json(userUpdated));
+});
+
 
 module.exports = router;

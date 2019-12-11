@@ -1,17 +1,20 @@
 import React from 'react';
 import './App.css';
-import TodoService from './services/TodoService';
-import TodoList from './components/TodoList/TodoList';
+// import TodoService from './services/TodoService';
 import { Switch, Route } from 'react-router-dom';
 import Login from './components/Login/Login';
 import SignUp from './components/Signup/Signup';
 import AuthService from './services/AuthService';
-import PrivateRoute from './guards/PrivateRoute';
+import Temporary from './components/Temporary/Temporary';
+import PrivateRoute from './guards/PrivateRoutes'
+import Home from './components/Home/Home'
+import Quiz from './components/Quiz/Quiz';
+
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.todoService = new TodoService();
+    // this.todoService = new TodoService();
     this.authService = new AuthService();
   }
 
@@ -49,16 +52,20 @@ class App extends React.Component {
     const { user } = this.state;
     return (
       <div className="App">
+        <Route exact path="/" render={() =><Home></Home>}></Route>
         <header className="App-header">
           {user && <Switch>
             <Route exact path="/login" render={(match) => <Login {...match} setUser={this.setUser} />} />  
             <Route exact path="/signup" render={(match) => <SignUp {...match} setUser={this.setUser} />} />
-            <PrivateRoute exact path="/" user={user} component={TodoList} />
+            <PrivateRoute exact path="/temporary" user={user} component={Temporary} />
+            <PrivateRoute exact path="/quiz" user={user} component={Quiz}/>
           </Switch> }
           {!user && <Switch>
             <Route exact path="/login" render={(match) => <Login {...match} setUser={this.setUser} />} />  
             <Route exact path="/signup" render={(match) => <SignUp {...match} setUser={this.setUser} />} />
-            <PrivateRoute exact path="/" user={user} component={TodoList} />
+            <PrivateRoute exact path="/temporary" user={user} component={Temporary} />
+            <Route exact path="/quiz" render={() => <Quiz></Quiz> }/>
+            {/* Delete other rutes... */}
           </Switch> }
         </header>
       </div>
