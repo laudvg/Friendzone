@@ -15,43 +15,13 @@ export default class Quiz extends Component {
     
       averageQ: 0,
     }
-    // this.updateRange = this.updateRange.bind(this);
+  this.update = this.update.bind(this);
   }
 
   update=(e)=>{
     const{name, value} = e.target;
     this.setState({...this.state, [name]:+value, averageQ:Object.values(this.state).splice(0,4).reduce((ac, cu)=> ac + cu , 0)/5})
   }
-  // , ()=>{console.log(this.state.question.Q1)}
-
-  // updateVal(e, name){
-  //   const currentNumber = [...this.state.question];
-  //   console.log(currentNumber)
-
-  //   let valueUpdated = [...this.state.averageQ];
-  //   valueUpdated[name] = e.target.value;
-
-  //   this.setState({
-  //     ...this.state,
-  //     averageQ: valueUpdated
-  //   });
-  // }
-
-
-  // updateVal(e, name){
-
-  //   const currentNumber = [...this.state.questions];
-  //   console.log(currentNumber)
-
-  //   let valueUpdated = [...this.state.averageQ];
-  //   valueUpdated[name] = e.target.value;
-
-  //   this.setState({
-  //     ...this.state,
-  //     averageQ: Object.values(this.state.questions).reduce((ac, cu)=> ac + cu , 0)/Object.values(this.state.questions).length
-    
-  //   });
-  // }
 
   render() {  
     console.log(this.state)

@@ -10,7 +10,6 @@ export default class SignUp extends Component {
   state = {
     username: '',
     password: '',
-    picture: ''
   }
 
   handleChange = (e) => {
@@ -32,20 +31,6 @@ export default class SignUp extends Component {
     )
   }
 
-  handleUpload = (e) => {
-    const uploadData = new FormData();
-    uploadData.append('picture', e.target.files[0])
-    this.authService.upload(uploadData)
-    .then(
-      (data) => {
-        this.setState({...this.state, picture: data.secure_url})
-      },
-      (error) => {
-        console.error(error)
-      }
-    )
-  }
-
   render() {
     const { username, password, picture } = this.state;
     return (
@@ -56,7 +41,6 @@ export default class SignUp extends Component {
           <input type="text" name="username" value={username} required onChange={this.handleChange}/>
           <label htmlFor="password">Password: </label>
           <input type="password" value={password} name="password" required onChange={this.handleChange}/>
-          <input type="file" name="picture" value={picture} onChange={this.handleUpload} />
           <input type="submit" value="Create account"/>
         </form>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-// import TodoService from './services/TodoService';
+
 import { Switch, Route } from 'react-router-dom';
 import Login from './components/Login/Login';
 import SignUp from './components/Signup/Signup';
@@ -14,7 +14,7 @@ import Quiz from './components/Quiz/Quiz';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    // this.todoService = new TodoService();
+
     this.authService = new AuthService();
   }
 
