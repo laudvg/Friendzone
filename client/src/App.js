@@ -9,6 +9,9 @@ import Temporary from './components/Temporary/Temporary';
 import PrivateRoute from './guards/PrivateRoutes'
 import Home from './components/Home/Home'
 import Quiz from './components/Quiz/Quiz';
+import Profile from './components/Profile/Profile';
+// import Contacts from './components/Contacts/Contacts';
+
 
 
 class App extends React.Component {
@@ -65,6 +68,7 @@ class App extends React.Component {
             <Route exact path="/signup" render={(match) => <SignUp {...match} setUser={this.setUser} />} />
             <PrivateRoute exact path="/temporary" user={user} component={Temporary} />
             <Route exact path="/quiz" render={() => <Quiz></Quiz> }/>
+            <Route exact path="/profile" render={() => <Profile></Profile> }/>
             {/* Delete other rutes... */}
           </Switch> }
         </header>
