@@ -33,8 +33,13 @@ class AuthService {
   }
 
   submitQuizVal = (quizValue) => {
-    console.log(quizValue)
-    return this.instance.post('/quiz', {quizValue})
+    return this.instance.post('/quiz', quizValue)
+    .then(res => Promise.resolve(res.data))
+    .catch(error => console.log(error))
+  }
+
+  submitPrefVal = (gender) => {
+    return this.instance.post('/preferences', {gender})
     .then(res => Promise.resolve(res.data))
     .catch(error => console.log(error))
   }

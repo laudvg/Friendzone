@@ -93,11 +93,13 @@ router.post('/upload', uploader.single('picture'), (req, res) => {
 
 //para pasar value del quiz al user...
 router.post("/quiz", (req, res, next) => {
-  const {quizValue}= req.body;
+  const quizValue= req.body;
   User.findByIdAndUpdate(
     req.user._id,
     {
-      quizValue: quizValue,
+      gender: quizValue.iam,
+      preference: quizValue.lookingFor,
+      quizValue: quizValue.averageQ,
     },
     { new: true }
   ).then(userUpdated => res.json(userUpdated));

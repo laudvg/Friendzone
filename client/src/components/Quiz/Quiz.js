@@ -13,8 +13,11 @@ export default class Quiz extends Component {
         Q3: 3,
         Q4: 3,
         Q5: 3,
+        averageQ: 3,
+        iam: "",
+        lookingFor: "",
     
-      averageQ: 3,
+
     }
   this.update = this.update.bind(this);
   this.service = new AuthService();
@@ -23,13 +26,24 @@ export default class Quiz extends Component {
   update=(e)=>{
     const{name, value} = e.target;
     this.setState({...this.state, [name]:+value, averageQ:Object.values(this.state).splice(0,4).reduce((ac, cu)=> ac + cu , 0)/5})
-
   }
 
   addValueToDB(){
-    this.service.submitQuizVal(this.state.averageQ)
+    const toDB ={
+      iam:this.state.iam,
+      lookingFor:this.state.lookingFor,
+      averageQ:this.state.averageQ
+    }
+    this.service.submitQuizVal(toDB)
   }
 
+  updateIam=(genre)=>{
+    this.setState({...this.state, iam:genre})
+  }
+
+  updateLooking=(genre)=>{
+    this.setState({...this.state, lookingFor:genre})
+  }
 
 
   render() {  
@@ -41,9 +55,9 @@ export default class Quiz extends Component {
 
         <div>
           <h3>You are a</h3> 
-            <Question></Question>
+            <Question update={this.updateIam}></Question>
             <h3>looking to find</h3> 
-            <Question></Question>
+            <Question update={this.updateLooking}></Question>
         </div>
         <div className="quiz-father">
         <div> 
