@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import Question from '../Question/Question';
 import { number, string } from 'prop-types';
+import AuthService from "../../services/AuthService.js"
 
 export default class Quiz extends Component {
   constructor(props){
@@ -13,15 +14,23 @@ export default class Quiz extends Component {
         Q4: 3,
         Q5: 3,
     
-      averageQ: 0,
+      averageQ: 3,
     }
   this.update = this.update.bind(this);
+  this.service = new AuthService();
   }
 
   update=(e)=>{
     const{name, value} = e.target;
     this.setState({...this.state, [name]:+value, averageQ:Object.values(this.state).splice(0,4).reduce((ac, cu)=> ac + cu , 0)/5})
+
   }
+
+  addValueToDB(){
+    this.service.submitQuizVal(this.state.averageQ)
+  }
+
+
 
   render() {  
     console.log(this.state)
@@ -52,7 +61,7 @@ export default class Quiz extends Component {
         <div>
         <h3>Disciplined</h3><input name="Q5" type="range" min="1" max="5" value={this.rangevalue5} className="slider" id="myRange" onChange={(e)=>this.update(e)}></input><h3>Relaxed</h3>
         </div>
-        <button>Submit</button>
+        <button type="button" onClick={() => this.addValueToDB()}>Submit</button>
         </div>
       </div>
     )}

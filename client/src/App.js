@@ -61,13 +61,13 @@ class App extends React.Component {
             <Route exact path="/login" render={(match) => <Login {...match} setUser={this.setUser} />} />  
             <Route exact path="/signup" render={(match) => <SignUp {...match} setUser={this.setUser} />} />
             <PrivateRoute exact path="/temporary" user={user} component={Temporary} />
-            <PrivateRoute exact path="/quiz" user={user} component={Quiz}/>
+            <Route exact path="/quiz" render={() => <Quiz></Quiz> }/>
           </Switch> }
           {!user && <Switch>
             <Route exact path="/login" render={(match) => <Login {...match} setUser={this.setUser} />} />  
             <Route exact path="/signup" render={(match) => <SignUp {...match} setUser={this.setUser} />} />
             <PrivateRoute exact path="/temporary" user={user} component={Temporary} />
-            <Route exact path="/quiz" render={() => <Quiz></Quiz> }/>
+            {/* <Route exact path="/quiz" render={() => <Quiz></Quiz> }/> */}
             <Route exact path="/profile" render={() => <Profile></Profile> }/>
             {/* Delete other rutes... */}
           </Switch> }

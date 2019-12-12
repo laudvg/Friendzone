@@ -1,8 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = require('mongoose').Schema;
 const userSchema = new Schema({
-  username: { type: String, required: true, unique: true },
-  password: { type: String, required: true, minlength: 2 }
+  username: String,
+  password: String,
+  gender: String,
+  preference: String,
+  quizValue: Number,
+
 }, {
   timestamps: true,
   toJSON: {

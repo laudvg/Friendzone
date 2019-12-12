@@ -8,89 +8,11 @@ const uploader = require('../../configs/cloudinary.configs')
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
-// router.post('/signup', (req, res, next) => {
-  // console.log(req.body.username)
-  // console.log(req.body.password)
-  // const { username, password } = req.body
-
-  // if (!username || !password) {
-  //   res.status(400).json({ message: 'Provide username and password' });
-  //   return;
-  // }
-
-  // if (password.length < 2) {
-  //   res.status(400).json({ message: 'Please make your password at least 8 characters long for security purposes.' });
-  //   return;
-  // }
-
-  // User.findOne({ username }, (err, foundUser) => {
-
-  //   if (err) {
-  //     res.status(500).json({ message: "Username check went bad." });
-  //     return;
-  //   }
-
-  //   if (foundUser) {
-  //     res.status(400).json({ message: 'Username taken. Choose another one.' });
-  //     return;
-  //   }
-
-  //   const salt = bcrypt.genSaltSync(bcryptSalt);
-  //   const hashPass = bcrypt.hashSync(password, salt);
-
-  //   const newUser = new User({
-  //     username: username,
-  //     password: hashPass
-  //   });
-
-  //   newUser.save(err => {
-  //     if (err) {
-  //       res.status(400).json({ message: 'Saving user to database went wrong.' });
-  //       return;
-  //     }
-
-  //     // Automatically log in user after sign up
-  //     // .login() here is actually predefined passport method
-  //     req.login(newUser, (err) => {
-
-  //       if (err) {
-  //         res.status(500).json({ message: 'Login after signup went bad.' });
-  //         return;
-  //       }
-
-  //       // Send the user's information to the frontend
-  //       // We can use also: res.status(200).json(req.user);
-  //       res.status(200).json(newUser);
-  //     });
-  //   });
-//   // });
-// });
-
 router.post('/signup', (req, res, next) => {
   console.log("hola")
   const { username, password, picture } = req.body
 
-  // if (!username || !password) {
-  //   res.status(400).json({ message: 'Provide username and password' });
-  //   return;
-  // }
-
-  // if (password.length < 2) {
-  //   res.status(400).json({ message: 'Please make your password at least 8 characters long for security purposes.' });
-  //   return;
-  // }
-
   User.findOne({ username }, (err, foundUser) => {
-
-    // if (err) {
-    //   res.status(500).json({ message: "Username check went bad." });
-    //   return;
-    // }
-
-    // if (foundUser) {
-    //   res.status(400).json({ message: 'Username taken. Choose another one.' });
-    //   return;
-    // }
 
     const salt = bcrypt.genSaltSync(bcryptSalt);
     const hashPass = bcrypt.hashSync(password, salt);
@@ -98,40 +20,26 @@ router.post('/signup', (req, res, next) => {
     const newUser = new User({
       username: username,
       password: hashPass,
+      gender:"",
+      preference:"",
+      quizValue: 0
     });
 
-    console.log(newUser);
     User.create(newUser)
     .then(newUserCreated => console.log(newUserCreated))
     newUser.save(err => {
-      // if (err) {
-      //   res.status(400).json({ message: 'Saving user to database went wrong.' });
-      //   return;
-      // }
-
-      // Automatically log in user after sign up
-      // .login() here is actually predefined passport method
       req.login(newUser, (err) => {
 
         if (err) {
           res.status(500).json({ message: 'Login after signup went bad.' });
           return;
         }
-
         // Send the user's information to the frontend
-        // We can use also: res.status(200).json(req.user);
         res.status(200).json(newUser);
       });
     });
   });
 });
-
-
-router.get("/hola",(req,res)=>{
-  res.json({
-    hola:"hpç"
-  })
-})
 
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', (err, theUser, failureDetails) => {
@@ -183,25 +91,16 @@ router.post('/upload', uploader.single('picture'), (req, res) => {
   }
 })
 
-
-router.put("/quiz/:quizValue", (req, res, next) => {
-  const { quizValue } = req.params;
+//para pasar value del quiz al user...
+router.post("/quiz", (req, res, next) => {
+  const {quizValue}= req.body;
   User.findByIdAndUpdate(
-    req.params.quizValue,
+    req.user._id,
     {
-      quizValue: req.body.quizValue,
+      quizValue: quizValue,
     },
     { new: true }
   ).then(userUpdated => res.json(userUpdated));
 });
-
-// router.post('/edit', (req, res) => {
-
-//   const { name, description, inversions, length, park } = req.body
-
-//   Coaster.findByIdAndUpdate(req.query.id, { name, description, inversions, length, park })
-//     .then(() => res.redirect(`/coasters/${req.query.id}`))
-//     .catch(err => console.log(err))
-// })
 
 module.exports = router;
