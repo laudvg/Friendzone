@@ -7,7 +7,7 @@ export default class Login extends Component {
     this.authService = new AuthService();
   }
 
-  state = {
+  state = { 
     username: '',
     password: ''
   }
@@ -22,12 +22,12 @@ export default class Login extends Component {
     .then(
       (user) => {
         setUser(user)
-        history.push("/")
+        history.push("/quiz")
       },
       (error) => {
         console.error(error)
       }
-    )
+    ).then()
   }
 
   render() {
