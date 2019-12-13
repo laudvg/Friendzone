@@ -17,7 +17,7 @@ export default class Profile extends Component {
         </div>
         <div className="current-user">
           <img src="profilepic"></img>
-          <h2>Hello User</h2>
+          <h2>Hello</h2>
           <div className ="age-location"></div>
           {/* {this.props.user.name} {this.props.user.age} {this.props.user.location}*/}
           <textarea className = "Description" rows="1" cols="80" placeholder="one line about yourself"></textarea>

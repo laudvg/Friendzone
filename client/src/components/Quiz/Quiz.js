@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import Question from '../Question/Question';
-import { number, string } from 'prop-types';
 import AuthService from "../../services/AuthService.js"
 import { withRouter } from 'react-router-dom'
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import {BrowserRouter as Router,Link,} from "react-router-dom";
+import { withRouter, Link } from 'react-router-dom'
 
-export default class Home extends Component {
+class Home extends Component {
   render() {
     return (
       <div>
@@ -12,3 +12,5 @@ export default class Home extends Component {
     )
   }
 }
+
+export default withRouter(Home)
