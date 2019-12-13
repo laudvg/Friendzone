@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom'
 import Question from '../Question/Question';
 import { number, string } from 'prop-types';
 import AuthService from "../../services/AuthService.js"
+import { withRouter } from 'react-router-dom'
 
-export default class Quiz extends Component {
+class Quiz extends Component {
   constructor(props){
     super();
     this.state = {
@@ -29,12 +30,22 @@ export default class Quiz extends Component {
   }
 
   addValueToDB(){
+    const {history} = this.props;
+    console.log(this.props);
     const toDB ={
       iam:this.state.iam,
       lookingFor:this.state.lookingFor,
       averageQ:this.state.averageQ
     }
     this.service.submitQuizVal(toDB)
+    .then(
+      () => {
+        history.push("/profile")
+      },
+      (error) => {
+        console.error(error)
+      }
+    )
   }
 
   updateIam=(genre)=>{
@@ -47,7 +58,6 @@ export default class Quiz extends Component {
 
 
   render() {  
-    console.log(this.state)
     return (
       <div>
         <h1>Quiz</h1>
@@ -87,3 +97,5 @@ ReactDOM.render(
   <Quiz />,
   document.getElementById('root')
 );
+
+export default withRouter(Quiz)

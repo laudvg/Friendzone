@@ -60,7 +60,7 @@ class App extends React.Component {
         <header className="App-header">
           {user && <Switch>
             <Route exact path="/quiz" render={(match) => <Quiz {...match} /> }/>
-            <PrivateRoute exact path="/profile" render={() => <Profile></Profile> }/>
+            <Route exact path="/profile" render={() => <Profile></Profile> }/>
           </Switch> }
           {!user && <Switch>
             <Route exact path="/login" render={(match) => <Login {...match} setUser={this.setUser} />} />  

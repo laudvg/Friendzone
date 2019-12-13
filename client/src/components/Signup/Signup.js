@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import AuthService from '../../services/AuthService'
+import { withRouter } from 'react-router-dom'
 
-export default class SignUp extends Component {
+class SignUp extends Component {
   constructor(props) {
     super(props)
     this.authService = new AuthService();
@@ -22,9 +23,7 @@ export default class SignUp extends Component {
     this.authService.signup(this.state)
     .then(
       () => {
-       
         history.push("/login")
-
       },
       (error) => {
         console.error(error)
@@ -48,3 +47,6 @@ export default class SignUp extends Component {
     )
   }
 }
+
+
+export default withRouter(SignUp)
