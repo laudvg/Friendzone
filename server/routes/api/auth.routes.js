@@ -9,7 +9,7 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
 router.post('/signup', (req, res, next) => {
-  const { username, password, picture } = req.body
+  const { username, password } = req.body
 
   User.findOne({ username }, (err, foundUser) => {
 
@@ -48,8 +48,6 @@ router.post('/login', (req, res, next) => {
     }
 
     if (!theUser) {
-      // "failureDetails" contains the error messages
-      // from our logic in "LocalStrategy" { message: '...' }.
       res.status(401).json(failureDetails);
       return;
     }
@@ -90,9 +88,8 @@ router.post('/upload', uploader.single('picture'), (req, res) => {
   }
 })
 
-//para pasar value del quiz al user...
 router.post("/quiz", (req, res, next) => {
-  const quizValue= req.body;
+  const quizValue = req.body;
   User.findByIdAndUpdate(
     req.user._id,
     {
@@ -103,5 +100,16 @@ router.post("/quiz", (req, res, next) => {
     { new: true }
   ).then(userUpdated => res.json(userUpdated));
 });
+
+
+router.get('/matches', (req, res, next) => {
+  if (req.isAuthenticated()) {
+    console.log(req.user)
+    User.find({$and:[ {quizValue:{$gt:Math.floor(req.user.quizValue)}}, {quizValue:{$lt:Math.ceil(req.user.quizValue)}} ]} )
+    .then(userFound=>res.json(userFound))
+    return; 
+  }
+  res.status(403).json({ message: 'Unauthorized' });
+})
 
 module.exports = router;

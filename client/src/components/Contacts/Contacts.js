@@ -1,35 +1,48 @@
 import React, { Component } from "react";
+import axios from "axios";
+import AuthService from './../../services/AuthService';
 
-export default class Contacts extends Component {
+class Contacts extends React.Component {
+  constructor(props) {
+    super(props);
+    this.authService = new AuthService();
+    this.state.user = props.user.username;
+    // console.log(props.user);
+  }
+  authService = null;
+
+  state = {
+    user: "",
+    matches: []
+  };
+
+  componentDidMount() {
+    this.authService.matches(this.state).then(matches => {
+      console.log(matches);
+    })
+    // axios.get("http://localhost:3001/api/auth/user/matches").then(res => {
+    //   const matches = res.data;
+    //   this.setState({ ...this.state, matches });
+    // });
+  }
+
   render() {
     return (
       <div>
-        <table className="user-description">
-          <thead></thead>
-          <tbody>
-            <tr>
-              <td>Name</td>
-              <td> ana{/* {this.props.user.name} */}</td>
-            </tr>
-            <tr>
-              <td>Age</td>
-              <td> 27 {/* {this.props.user.age} */} </td>
-            </tr>
-            <tr>
-              <td>City</td>
-              <td>Mad{/* {this.props.user.location} */}</td>
-            </tr>
-            <tr>
-              <td>Leave Your Message</td>
-              <td>
-                <ul>
-                  <li><h4>Message</h4></li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <div>
+        <td>
+          <ul>
+            {this.state.matches.map((match, i) => (
+              <li key={i} matches={match}>
+                {match}
+              </li>
+            ))}
+          </ul>
+        </td>
+        </div>
       </div>
     );
   }
 }
+
+export default Contacts;

@@ -44,6 +44,12 @@ class AuthService {
     .catch(error => console.log(error))
   }
 
+  matches = () => {
+    return this.instance.get('/matches')
+    .then(res => Promise.resolve(res.data))
+    .catch(error => console.error(error))
+  }
+
 }
 
 export default AuthService;

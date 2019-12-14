@@ -19,7 +19,7 @@ class SignUp extends Component {
   }
   handleSignUp = (e) => {
     e.preventDefault()
-    const { history, setUser } = this.props;
+    const { history } = this.props;
     this.authService.signup(this.state)
     .then(
       () => {
@@ -32,7 +32,7 @@ class SignUp extends Component {
   }
 
   render() {
-    const { username, password, picture } = this.state;
+    const { username, password } = this.state;
     return (
       <div>
       <h1>SignUp</h1>

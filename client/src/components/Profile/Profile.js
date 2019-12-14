@@ -1,16 +1,12 @@
 import React from 'react';
-
 import Contacts from "../Contacts/Contacts";
-import axios from "axios";
-
-
+// import axios from "axios";
 // import AuthService from './services/AuthService';
 
 class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state.user = props.user.username;
-    console.log(props.user.username);
   }
   
   state ={
@@ -18,10 +14,11 @@ class Profile extends React.Component {
   }
 
   // componentDidMount() {
-  //   axios.get("http://localhost:3001/api/auth/user/laura")
+  //   axios.get("http://localhost:3001/api/auth/user/matches")
   //     .then(res => {
   //       const user = res.data
-  //       this.setState({user:user.username});
+  //       console.log(user)
+  //       // this.setState({user:user.username});
   //     });
   // }
 
@@ -41,19 +38,19 @@ class Profile extends React.Component {
           </header>
         </div>
         <div className="current-user">
-          <img src="profilepic"></img>
+          <img src="profilepic" alt=" "></img>
           <h2>Hello {this.state.user}</h2>
           <div className ="age-location"></div>
 
           <textarea className = "Description" rows="1" cols="80" placeholder="one line about yourself"></textarea>
         </div>
           <h4>Friends</h4>
-        <div className="table-container">
+        <div className="contacts-container">
           <div className="inner-container">
-            <a>People Names</a>
+            <a>Matches</a>
           </div>
           <div className="inner-container">
-            <Contacts></Contacts>
+            <Contacts user={this.state.user}></Contacts>
           </div>
         </div>
       </div>
