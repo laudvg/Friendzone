@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 import AuthService from './../../services/AuthService';
 
 class Contacts extends React.Component {
@@ -18,27 +17,25 @@ class Contacts extends React.Component {
 
   componentDidMount() {
     this.authService.matches(this.state).then(matches => {
-      console.log(matches);
+      this.setState({  matches: matches });
+      // console.log(matches);
     })
-    // axios.get("http://localhost:3001/api/auth/user/matches").then(res => {
-    //   const matches = res.data;
-    //   this.setState({ ...this.state, matches });
-    // });
   }
 
   render() {
     return (
       <div>
         <div>
-        <td>
-          <ul>
+          <table>
+            <thead><th><tr>Matches</tr></th></thead>
+            <tbody>
             {this.state.matches.map((match, i) => (
-              <li key={i} matches={match}>
-                {match}
-              </li>
+              <tr key={i} matches={match}>
+               <td>{match.username}</td>
+              </tr>
             ))}
-          </ul>
-        </td>
+            </tbody>
+        </table>
         </div>
       </div>
     );

@@ -47,7 +47,6 @@ class Profile extends React.Component {
           <h4>Friends</h4>
         <div className="contacts-container">
           <div className="inner-container">
-            <a>Matches</a>
           </div>
           <div className="inner-container">
             <Contacts user={this.state.user}></Contacts>
