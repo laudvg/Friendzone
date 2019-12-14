@@ -12,10 +12,12 @@ class Login extends Component {
     username: '',
     password: ''
   }
+  
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({...this.state, [name]:value})
   }
+
   handleLogin = (e) => {
     const { setUser, history } = this.props;
     e.preventDefault()
