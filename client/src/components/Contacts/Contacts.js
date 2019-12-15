@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React  from "react";
 import AuthService from './../../services/AuthService';
 
 class Contacts extends React.Component {
@@ -27,7 +27,7 @@ class Contacts extends React.Component {
       <div>
         <div>
           <table>
-            <thead><th><tr>Matches</tr></th></thead>
+            <thead><tr><th>Matches</th></tr></thead>
             <tbody>
             {this.state.matches.map((match, i) => (
               <tr key={i} matches={match}>

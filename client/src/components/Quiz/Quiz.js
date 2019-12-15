@@ -25,7 +25,7 @@ class Quiz extends Component {
 
   update=(e)=>{
     const{name, value} = e.target;
-    this.setState({...this.state, [name]:+value, averageQ:Object.values(this.state).splice(0,4).reduce((ac, cu)=> ac + cu , 0)/5})
+    this.setState({...this.state, [name]:+value, averageQ:Object.values(this.state).splice(0,4).reduce((ac, cu)=> ac + cu , 1)/5})
   }
 
   addValueToDB(){

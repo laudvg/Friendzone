@@ -12,9 +12,9 @@ export default class Question extends Component {
       <div>
         <form className = "I-am">
           <select onChange={(e)=>this.handleChange(e)}>
+          <option defaultValue="Non">Non Specified</option>
           <option value="Female">Female</option>
           <option value="Male">Male</option>
-          <option selected value="Non">Non Specified</option>
           </select>
         </form>
       </div>
