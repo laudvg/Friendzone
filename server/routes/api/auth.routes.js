@@ -104,10 +104,18 @@ router.post("/quiz", (req, res, next) => {
 
 router.get('/matches', (req, res, next) => {
   if (req.isAuthenticated()) {
-    console.log(req.user)
-    User.find({$and:[ {quizValue:{$gt:Math.floor(req.user.quizValue)}}, {quizValue:{$lt:Math.ceil(req.user.quizValue)}} ]} )
+    let numberMin = Math.floor(req.user.quizValue)
+    let numberMax = Math.ceil(req.user.quizValue)
+    if (numberMax === numberMin){
+      if (numberMin > 1){
+        numberMin--;
+      } else {
+        numberMax++;
+      } 
+    }
+    User.find({$and:[ {quizValue:{$gte:numberMin}}, {quizValue:{$lte:numberMax}} , {username:{$not:{ $eq: req.user.username}}} ]})
     .then(userFound=>res.json(userFound))
-    return; 
+    return;
   }
   res.status(403).json({ message: 'Unauthorized' });
 })
