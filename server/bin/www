@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 
 const http = require('http');
+const io = require('socket.io').listen("http://localhost:3001/api");
+
 
 let app = require('../app');
 

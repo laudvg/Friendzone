@@ -8,9 +8,10 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 const session      = require("express-session");
-const MongoStore    = require("connect-mongo")(session);
-const passport    = require('passport')
-const cors        = require('cors');
+const MongoStore   = require("connect-mongo")(session);
+const passport     = require('passport')
+const cors         = require('cors');
+const io           = require("socket.io").listen(server);
 
 
 require('./configs/db.config');
@@ -56,14 +57,32 @@ app.use(session({
 }))
 app.use(passport.initialize())
 app.use(passport.session())
-    
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 const index = require('./routes');
 app.use('/', index);
 
+/// chat ==> adding web sockets
+
+let userList = [];
+
+io.on("connection", socket => {
+  console.log("socket connected");
+
+  socket.on("newConfirmedChatUser", user => {
+    console.log(`${user} connected`);
+    userList.push(user);
+    socket.emit("updatedUserList", userList);
+    socket.broadcast.emit("updatedUserList", userList);
+  });
+
+  socket.on("messageSent", message => {
+    console.log(message);
+    socket.broadcast.emit("newMessage", message);
+  });
+
+});
+/////
 
 module.exports = app;

@@ -16,6 +16,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.authService = new AuthService();
+
+    //check chat to server goes here or in profile component?
+    // this.socket = io("http://192.168.20.150:5000");
   }
 
   state = {
