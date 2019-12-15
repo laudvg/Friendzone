@@ -16,6 +16,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.authService = new AuthService();
+    
   }
 
   state = {
@@ -55,7 +56,7 @@ class App extends React.Component {
         <Route exact path="/" render={() =><Home></Home>}></Route>
         <header className="App-header">
           {user && <Switch>
-            <Route exact path="/quiz" render={(match) => <Quiz {...match} /> }/>
+            <Route exact path="/quiz" render={(match) => <Quiz {...match} user={user}/> }/>
             <Route exact path="/profile" render={() => <Profile user={user}/> }/>
           </Switch> }
           {!user && <Switch>

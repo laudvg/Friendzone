@@ -6,6 +6,7 @@ const userSchema = new Schema({
   gender: String,
   preference: String,
   quizValue: Number,
+  description: String,
   age: Number,
   city: String
 

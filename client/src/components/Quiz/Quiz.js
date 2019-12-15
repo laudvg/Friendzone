@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
 import Question from '../Question/Question';
 import AuthService from "../../services/AuthService.js"
 import { withRouter } from 'react-router-dom'
 
 class Quiz extends Component {
   constructor(props){
-    super();
+    super(props);
     this.state = {
         Q1: 3,
         Q2: 3,
@@ -16,13 +15,17 @@ class Quiz extends Component {
         averageQ: 3,
         iam: "",
         lookingFor: "",
-    
-
-    }
+        user: props.user
+  }
+  // console.log(props.user.username)
   this.update = this.update.bind(this);
   this.service = new AuthService();
   }
 
+  state = {
+    user: "",
+  };
+    
   update=(e)=>{
     const{name, value} = e.target;
     this.setState({...this.state, [name]:+value, averageQ:Object.values(this.state).splice(0,4).reduce((ac, cu)=> ac + cu , 1)/5})
@@ -30,7 +33,6 @@ class Quiz extends Component {
 
   addValueToDB(){
     const {history} = this.props;
-    console.log(this.props);
     const toDB ={
       iam:this.state.iam,
       lookingFor:this.state.lookingFor,
@@ -56,17 +58,19 @@ class Quiz extends Component {
   }
 
 
-  render() {  
+  render() {
+    // console.log(this.state)
     return (
       <div>
         <h1>Quiz</h1>
-        <h2>Hello person</h2>
-
+        <h2>Hello {this.state.user.username}</h2>
         <div>
           <h3>You are a</h3> 
             <Question update={this.updateIam}></Question>
             <h3>looking to find</h3> 
             <Question update={this.updateLooking}></Question>
+            
+        <input type="text" className = "Description" required minLength="10" maxLength="60" size="100" placeholder="write one line about yourself" onChange={(e)=>this.update(e)}></input>
         </div>
         <div className="quiz-father">
         <div> 
@@ -91,10 +95,5 @@ class Quiz extends Component {
 }
 
 
-
-ReactDOM.render(
-  <Quiz />,
-  document.getElementById('root')
-);
 
 export default withRouter(Quiz)
