@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import io from "socket.io-client"; // check
+// import io from "socket.io-client"; // check
 
 class Chat extends Component {
   constructor(props) {
