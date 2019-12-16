@@ -70,7 +70,7 @@ class Chat extends Component {
   };
 
   render() {
-    const { users, username } = this.props;
+    const { username } = this.props;
     return (
       <div className="chat-div is-fluid">
         <div>

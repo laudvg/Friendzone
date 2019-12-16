@@ -16,7 +16,6 @@ class Quiz extends Component {
         averageQ: 3,
         iam: "",
         lookingFor: "",
-    
 
     }
   this.update = this.update.bind(this);

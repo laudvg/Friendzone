@@ -1,12 +1,9 @@
 #!/usr/bin/env node
 
 const http = require('http');
-const io = require('socket.io-client').listen(ioserver);
-
-var ioserver = app.listen(`http://localhost:${process.env.PORT}`);
 
 let app = require('../app');
-let server = http.createServer(app);s
+let server = http.createServer(app);
 
 // catch 404 and render a not-found.hbs template
 app.use((req, res, next) => {
@@ -17,7 +14,7 @@ app.use((req, res, next) => {
 app.use((err, req, res, next) => {
   // always log the error
   console.error('ERROR', req.method, req.path, err);
-
+  
   // only render if the error ocurred before sending the response
   if (!res.headersSent) {
     res.status(500);
@@ -26,6 +23,8 @@ app.use((err, req, res, next) => {
 });
 
 
+
+// var server = app.listen(`http://localhost:${process.env.PORT}`);
 
 server.on('error', error => {
   if (error.syscall !== 'listen') { throw error }
@@ -36,15 +35,36 @@ server.on('error', error => {
       console.error(`Port ${process.env.PORT} requires elevated privileges`);
       process.exit(1);
       break;
-    case 'EADDRINUSE':
+      case 'EADDRINUSE':
       console.error(`Port ${process.env.PORT} is already in use`);
       process.exit(1);
       break;
-    default:
-      throw error;
+      default:
+        throw error;
   }
 });
 
 server.listen(process.env.PORT, () => {
   console.log(`Listening on http://localhost:${process.env.PORT}`);
+});
+
+const io = require('socket.io').listen(server);
+
+let userList = [];
+
+io.on("connection", socket => {
+  console.log("socket connected");
+
+  socket.on("newConfirmedChatUser", user => {
+    console.log(`${user} connected`);
+    userList.push(user);
+    socket.emit("updatedUserList", userList);
+    socket.broadcast.emit("updatedUserList", userList);
+  });
+
+  socket.on("messageSent", message => {
+    console.log(message);
+    socket.broadcast.emit("newMessage", message);
+  });
+
 });

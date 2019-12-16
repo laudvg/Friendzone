@@ -50,6 +50,11 @@ class AuthService {
     .catch(error => console.error(error))
   }
 
+  submitMessage = () => {
+    return this.instance.post('/message')
+    .then(res => Promise.resolve(res.data))
+    .catch(error => console.log(error))
+  }
 }
 
 export default AuthService;

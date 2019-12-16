@@ -1,15 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = require('mongoose').Schema;
 
-const userSchema = new Schema({
-  username: String,
-  password: String,
-  gender: String,
-  preference: String,
-  quizValue: Number,
-  age: Number,
-  city: String
-
+const chatSchema = new Schema({
+ chat: Array
 }, {
   timestamps: true,
   toJSON: {
@@ -24,6 +17,6 @@ const userSchema = new Schema({
   }
 })
 
-const User = mongoose.model('User', userSchema);
-module.exports = User;
+const Chat = mongoose.model('Chat', chatSchema);
+module.exports = Chat;
 
