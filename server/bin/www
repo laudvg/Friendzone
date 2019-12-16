@@ -24,8 +24,6 @@ app.use((err, req, res, next) => {
 
 
 
-// var server = app.listen(`http://localhost:${process.env.PORT}`);
-
 server.on('error', error => {
   if (error.syscall !== 'listen') { throw error }
 
