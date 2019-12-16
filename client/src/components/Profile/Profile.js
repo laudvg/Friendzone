@@ -20,32 +20,7 @@ class Profile extends React.Component {
     }
 
   }
-  
-  // setUser = (user) => {
-  //   this.setState({ ...this.state, user})
-  //   // console.log(this.state.user)
-  // }
 
-  // fetchUser = () => {
-  //   if (this.state.user === null) {
-  //     this.authService.loggedInUser()
-  //       .then(
-  //         (user) => {
-  //           this.setUser(user)
-  //         },
-  //         (error) => {
-  //           this.setUser(false)
-  //         }
-  //       )
-  //       .catch(() => {
-  //         this.setUser(false)
-  //       })
-  //   }
-  // }
-
-  // componentDidMount() {
-  //   this.fetchUser()
-  // }
  
   render() {
     console.log(this.props.location)
