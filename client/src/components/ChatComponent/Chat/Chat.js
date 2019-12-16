@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import InputMess from "../InputMess/InputMess";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, ListGroup, Col, Container} from 'react-bootstrap'
 import './Chat.css'
 
