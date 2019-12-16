@@ -1,23 +1,54 @@
 import React from 'react';
 import Contacts from "../Contacts/Contacts";
 import { Link } from 'react-router-dom'
+import AuthService from '../../services/AuthService';
+import { withRouter } from "react-router-dom";
+
 // import axios from "axios";
 // import AuthService from './services/AuthService';
 
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    this.state.user = props.user.username;
-    this.state.description = props.user.description;
+    // this.state.user = props.user.username;
+    // this.state.description = props.user.description;
+    this.authService = new AuthService()
+
+    this.state = {
+      user: this.props.user.username,
+      // description: this.props.history.state.description
+    }
+
   }
   
-  state ={
-    user: "",
-    description:""
-  }
+  // setUser = (user) => {
+  //   this.setState({ ...this.state, user})
+  //   // console.log(this.state.user)
+  // }
+
+  // fetchUser = () => {
+  //   if (this.state.user === null) {
+  //     this.authService.loggedInUser()
+  //       .then(
+  //         (user) => {
+  //           this.setUser(user)
+  //         },
+  //         (error) => {
+  //           this.setUser(false)
+  //         }
+  //       )
+  //       .catch(() => {
+  //         this.setUser(false)
+  //       })
+  //   }
+  // }
+
+  // componentDidMount() {
+  //   this.fetchUser()
+  // }
  
   render() {
-    // console.log(this.state)
+    console.log(this.props.location)
     return (
       <div className="user-profile">
         <div>
@@ -35,7 +66,7 @@ class Profile extends React.Component {
         <div className="current-user">
           <img src="profilepic" alt=" "></img>
           <h2>Hello {this.state.user}</h2>
-          <h3>{this.state.description}</h3>
+          <h3>{this.props.location.state.description}</h3>
         </div>
 
         <div className="contacts-container">
@@ -47,5 +78,5 @@ class Profile extends React.Component {
     );
   }
 }
-
-export default Profile;
+ 
+export default withRouter(Profile);

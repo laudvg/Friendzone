@@ -15,7 +15,7 @@ class Quiz extends Component {
       averageQ: 3,
       iam: "",
       lookingFor: "",
-      about:"",
+      description:"",
       user: props.user
     };
     // console.log(props.user.username)
@@ -45,16 +45,19 @@ class Quiz extends Component {
       iam: this.state.iam,
       lookingFor: this.state.lookingFor,
       averageQ: this.state.averageQ,
-      about: this.state.about
+      description: this.state.description
     };
+
     this.service.submitQuizVal(toDB).then(
       () => {
-        history.push("/profile");
+        history.push( "/profile", {...this.state})
+
       },
       error => {
         console.error(error);
       }
     );
+
   }
 
   updateIam = genre => {
@@ -65,12 +68,14 @@ class Quiz extends Component {
     this.setState({ ...this.state, lookingFor: genre });
   };
 
-  updateAbout = oneLine => {
-    this.setState({ ...this.state, about: oneLine });
+  updateAbout = e => {
+    console.log(this.state.description)
+    this.setState({ ...this.state, description: e.target.value });
+
   };
 
   render() {
-    // console.log(this.state)
+
     return (
       <div>
         <h1>Quiz</h1>
@@ -90,8 +95,8 @@ class Quiz extends Component {
             maxLength="60"
             size="100"
             placeholder="write one line about yourself"
-            update={this.updateAbout}
-            onChange={e => this.update(e)}
+            value={this.state.description}
+            onChange={e => this.updateAbout(e)}
           ></input>
         </div>
         <div className="quiz-father">

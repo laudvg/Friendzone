@@ -45,7 +45,7 @@ class AuthService {
   }
 
   submitAbout = (description) => {
-    return this.instance.post('/about', {description})
+    return this.instance.post('/description', {description})
     .then(res => Promise.resolve(res.data))
     .catch(error => console.log(error))
   }

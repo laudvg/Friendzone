@@ -97,7 +97,7 @@ router.post("/quiz", (req, res, next) => {
       gender: quizValue.iam,
       preference: quizValue.lookingFor,
       quizValue: quizValue.averageQ,
-      description: quizValue.about
+      description: quizValue.description
     },
     { new: true }
   ).then(userUpdated => res.json(userUpdated));
