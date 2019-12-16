@@ -21,7 +21,7 @@ class Profile extends React.Component {
 
  
   render() {
-    console.log(this.props.location)
+    // console.log(this.props.location)
     return (
       <div className="user-profile">
         <div>

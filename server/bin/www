@@ -45,6 +45,11 @@ server.listen(process.env.PORT, () => {
   console.log(`Listening on http://localhost:${process.env.PORT}`);
 });
 
+
+const io = require('socket.io').listen(server)
+
+let userList = []
+
 io.on("connection", socket => {
   console.log("socket connected");
 
