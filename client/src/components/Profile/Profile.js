@@ -3,6 +3,7 @@ import Contacts from "../Contacts/Contacts";
 import { Link } from 'react-router-dom'
 import AuthService from '../../services/AuthService';
 import { withRouter } from "react-router-dom";
+import ChatComponent from "../ChatComponent/ChatComponent"
 
 // import axios from "axios";
 // import AuthService from './services/AuthService';
@@ -10,13 +11,10 @@ import { withRouter } from "react-router-dom";
 class Profile extends React.Component {
   constructor(props) {
     super(props);
-    // this.state.user = props.user.username;
-    // this.state.description = props.user.description;
     this.authService = new AuthService()
 
     this.state = {
       user: this.props.user.username,
-      // description: this.props.history.state.description
     }
 
   }
@@ -47,6 +45,7 @@ class Profile extends React.Component {
         <div className="contacts-container">
           <div className="inner-container"></div>
           <div className="inner-container"><Contacts user={this.state.user}></Contacts></div>
+          <div className="chat-container"><ChatComponent></ChatComponent></div>
         </div>
 
       </div>
