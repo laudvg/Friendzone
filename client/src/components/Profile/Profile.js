@@ -8,14 +8,16 @@ class Profile extends React.Component {
   constructor(props) {
     super(props);
     this.state.user = props.user.username;
+    this.state.description = props.user.description;
   }
   
   state ={
     user: "",
+    description:""
   }
  
   render() {
-    // console.log(this.state.user.username)
+    // console.log(this.state)
     return (
       <div className="user-profile">
         <div>
@@ -33,6 +35,7 @@ class Profile extends React.Component {
         <div className="current-user">
           <img src="profilepic" alt=" "></img>
           <h2>Hello {this.state.user}</h2>
+          <h3>{this.state.description}</h3>
         </div>
 
         <div className="contacts-container">

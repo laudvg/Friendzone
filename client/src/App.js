@@ -23,9 +23,9 @@ class App extends React.Component {
     user: null
   }
 
-  setUser = (user) => {
-    this.setState({ ...this.state, user })
-    //  console.log(this.state.user)
+  setUser = (user, description) => {
+    this.setState({ ...this.state, user, description })
+    console.log(this.state.user)
   }
 
   fetchUser = () => {
@@ -50,13 +50,13 @@ class App extends React.Component {
   }
 
   render() {
-    const { user } = this.state;
+    const { user,description } = this.state;
     return (
       <div className="App">
         <Route exact path="/" render={() =><Home></Home>}></Route>
         <header className="App-header">
           {user && <Switch>
-            <Route exact path="/quiz" render={(match) => <Quiz {...match} user={user}/> }/>
+            <Route exact path="/quiz" render={(match) => <Quiz {...match} user={user} description={description}/> }/>
             <Route exact path="/profile" render={() => <Profile user={user}/> }/>
           </Switch> }
           {!user && <Switch>

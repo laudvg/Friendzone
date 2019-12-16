@@ -21,7 +21,8 @@ router.post('/signup', (req, res, next) => {
       password: hashPass,
       gender:"",
       preference:"",
-      quizValue: 0
+      quizValue: 0, 
+      description:""
     });
 
     User.create(newUser)
@@ -96,6 +97,7 @@ router.post("/quiz", (req, res, next) => {
       gender: quizValue.iam,
       preference: quizValue.lookingFor,
       quizValue: quizValue.averageQ,
+      description: quizValue.about
     },
     { new: true }
   ).then(userUpdated => res.json(userUpdated));

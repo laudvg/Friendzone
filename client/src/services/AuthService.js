@@ -44,6 +44,12 @@ class AuthService {
     .catch(error => console.log(error))
   }
 
+  submitAbout = (description) => {
+    return this.instance.post('/about', {description})
+    .then(res => Promise.resolve(res.data))
+    .catch(error => console.log(error))
+  }
+
   matches = () => {
     return this.instance.get('/matches')
     .then(res => Promise.resolve(res.data))

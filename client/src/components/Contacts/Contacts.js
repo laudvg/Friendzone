@@ -29,7 +29,7 @@ class Contacts extends React.Component {
           <table>
             <thead><tr><th>Matches</th></tr></thead>
             <tbody>
-            {this.state.matches.map((match, i) => (<tr key={i} matches={match}>
+              {this.state.matches.map((match, i) => (<tr key={i} matches={match}>
                <td>{match.username}</td>
               </tr>
             ))}
