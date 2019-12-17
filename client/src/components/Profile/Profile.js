@@ -45,7 +45,7 @@ class Profile extends React.Component {
         <div className="contacts-container">
           <div className="inner-container"></div>
           <div className="inner-container"><Contacts user={this.state.user}></Contacts></div>
-          <div className="chat-container"><ChatComponent></ChatComponent></div>
+          <div className="chat-container">Hola<ChatComponent></ChatComponent></div>
         </div>
 
       </div>

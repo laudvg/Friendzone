@@ -8,6 +8,7 @@ import AuthService from './services/AuthService';
 import Home from './components/Home/Home'
 import Quiz from './components/Quiz/Quiz';
 import Profile from './components/Profile/Profile';
+import ChatComponent from "./components/ChatComponent/ChatComponent"
 // import Contacts from './components/Contacts/Contacts';
 
 
@@ -57,6 +58,7 @@ class App extends React.Component {
           {user && <Switch>
             <Route exact path="/quiz" render={(match) => <Quiz {...match} user={user} description={description}/> }/>
             <Route exact path="/profile" render={() => <Profile user={user}/> }/>
+            <Route exact path="/chat" render={() => <ChatComponent user={user}/> }/>
           </Switch> }
           {!user && <Switch>
             <Route exact path="/login" render={(match) => <Login {...match} setUser={this.setUser} />} />  
