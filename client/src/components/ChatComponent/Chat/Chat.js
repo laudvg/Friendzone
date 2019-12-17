@@ -1,17 +1,22 @@
 import React, { Component } from "react";
-import InputMess from "../InputMess/InputMess";
-// import './bootstrap/dist/css/bootstrap.min.css'
-import { Row, ListGroup, Col, Container} from 'react-bootstrap'
+// import InputMess from "../InputMess/InputMess";
+import { withRouter } from "react-router-dom";
+import AuthService from '../../../services/AuthService';
 import './Chat.css'
+// import Contacts from "../../Contacts/Contacts";
+// import './bootstrap/dist/css/bootstrap.min.css'
 
 
 
-export default class Chat extends Component {
+class Chat extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
+    this.authService = new AuthService()
+    console.log(this.props.user);
+
     this.state = {
       messages: [],
+      user: this.props.user
     };
 
     // Recibimos el socket por props, se creó en ChatComponent.js
@@ -48,24 +53,10 @@ export default class Chat extends Component {
   render() {
     console.log(this.state);
     return (
-      <Container id="cont">
-        <Row>
-
-          {/* Lista de usuarios */}
-          <Col sm={3} id="userList">
-            <h5>ACTIVE :</h5>
-            <ListGroup>
-              {this.props.list.map((elem, idx) => {
-                return elem===this.props.user ?
-                  <ListGroup.Item key={idx}><b>{elem}</b></ListGroup.Item>
-                  :
-                  <ListGroup.Item key={idx}>{elem}</ListGroup.Item>
-              })}
-            </ListGroup>
-          </Col>
-
+      <div id="cont">
+        <div>
           {/* Box que contiene el chat */}
-          <Col sm={9}>
+          <div>
             <div className="chatBox" id="chatBox">
               {this.state.messages.map((elem, idx) => {
                 return (
@@ -75,14 +66,15 @@ export default class Chat extends Component {
                 );
               })}
             </div>
-
             {/* Input para nuevos mensajes */}
             <div className="textForm">
-              <InputMess info={this.sendMessage}></InputMess>
+              {/* <InputMess info={this.sendMessage}></InputMess> */}
             </div>
-          </Col>
-        </Row>
-      </Container>
+          </div>
+        </div>
+      </div>
     );
   }
 }
+
+export default withRouter(Chat);

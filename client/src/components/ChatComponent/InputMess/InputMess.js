@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 // import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Form } from 'react-bootstrap'
 
 
 export default class InputMess extends Component {
@@ -24,9 +23,9 @@ export default class InputMess extends Component {
     // Este componente renderiza el input para escribir mensajes dentro del chat
     render() {
         return (
-            <Form>
-            <Form.Group controlId="formBasicEmail">
-              <Form.Control
+            <div>
+            <div controlId="formBasicEmail">
+              <input
                 onChange={e => {
                   this.handlerText(e);
                 }}
@@ -34,9 +33,9 @@ export default class InputMess extends Component {
                 placeholder="Your message"
                 value={this.state.text}
               />
-            </Form.Group>
+            </div>
     
-            <Button
+            <button
               variant="primary"
               type="submit"
               onClick={(e) => {
@@ -44,8 +43,8 @@ export default class InputMess extends Component {
               }}
             >
               Send
-            </Button>
-          </Form>
+            </button>
+          </div>
         )
     }
 }

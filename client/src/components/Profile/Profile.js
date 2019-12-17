@@ -5,9 +5,6 @@ import AuthService from '../../services/AuthService';
 import { withRouter } from "react-router-dom";
 import ChatComponent from "../ChatComponent/ChatComponent"
 
-// import axios from "axios";
-// import AuthService from './services/AuthService';
-
 class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -39,15 +36,17 @@ class Profile extends React.Component {
         <div className="current-user">
           <img src="profilepic" alt=" "></img>
           <h2>Hello {this.state.user}</h2>
-          <h3>{this.props.location.state.description}</h3>
+          {/* <h3>{this.props.location.state.description}</h3> */}
         </div>
 
         <div className="contacts-container">
           <div className="inner-container"></div>
           <div className="inner-container"><Contacts user={this.state.user}></Contacts></div>
-          <div className="chat-container">Hola<ChatComponent></ChatComponent></div>
         </div>
-
+        <div>
+          <h5>Chat</h5>
+          <div className="chat-container">esto<ChatComponent/></div>
+        </div>
       </div>
     );
   }

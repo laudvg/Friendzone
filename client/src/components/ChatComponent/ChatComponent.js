@@ -16,7 +16,7 @@ class ChatComponent extends Component {
     }
 
     // Creamos el socket, y con ello la conexión al server
-    this.socket = io('http://192.168.96.69:5000')
+    this.socket = io('http://localhost:3001')
 
     // Creamos un ".on", el cual escucha si el server envia una lista de usuarios 
     this.socket.on('list', list => {
@@ -43,13 +43,13 @@ class ChatComponent extends Component {
   // al no tener que crear una conexión distinta por componente
   render() {
     return (
-      <React.Fragment>
+      <div>
          <Switch>
           {/* <Route exact path="/" render={(props)=>(<Intro info={this.updateUserList} {...props}/>)}></Route> */}
           <Route exact path="/chat" render={()=>(<Chat socket={this.socket} list={this.state.userList} user={this.state.user}/>)}></Route>
           <Route exact path="/list" render={()=>(<List socket={this.socket}/>)}></Route>
         </Switch>
-      </React.Fragment>
+      </div>
     )
   }
 }

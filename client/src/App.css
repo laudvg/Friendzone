@@ -110,3 +110,8 @@ img {
   display: flex;
   align-items: center;
 }
+
+.chat-container{
+  height: 50vh;
+  width:500px
+}
