@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import InputMess from "../InputMess/InputMess";
+import InputMess from "../InputMess/InputMess";
 import { withRouter } from "react-router-dom";
 import AuthService from '../../../services/AuthService';
 import './Chat.css'
@@ -68,7 +68,7 @@ class Chat extends Component {
             </div>
             {/* Input para nuevos mensajes */}
             <div className="textForm">
-              {/* <InputMess info={this.sendMessage}></InputMess> */}
+              <InputMess info={this.sendMessage}></InputMess>
             </div>
           </div>
         </div>

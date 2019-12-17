@@ -24,7 +24,7 @@ export default class InputMess extends Component {
     render() {
         return (
             <div>
-            <div controlId="formBasicEmail">
+            <div >
               <input
                 onChange={e => {
                   this.handlerText(e);

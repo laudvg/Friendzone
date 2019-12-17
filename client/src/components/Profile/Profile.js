@@ -12,11 +12,8 @@ class Profile extends React.Component {
 
     this.state = {
       user: this.props.user.username,
-    }
+    }}
 
-  }
-
- 
   render() {
     // console.log(this.props.location)
     return (
@@ -45,7 +42,7 @@ class Profile extends React.Component {
         </div>
         <div>
           <h5>Chat</h5>
-          <div className="chat-container">esto<ChatComponent/></div>
+          <div className="chat-container">esto<ChatComponent user={this.state.user}/></div>
         </div>
       </div>
     );
