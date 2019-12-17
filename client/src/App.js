@@ -58,7 +58,7 @@ class App extends React.Component {
           {user && <Switch>
             <Route exact path="/quiz" render={(match) => <Quiz {...match} user={user} description={description}/> }/>
             <Route exact path="/profile" render={() => <Profile user={user}/> }/>
-            <Route exact path="/chat" render={() => <ChatComponent user={user}/> }/>
+        
           </Switch> }
           {!user && <Switch>
             <Route exact path="/login" render={(match) => <Login {...match} setUser={this.setUser} />} />  
