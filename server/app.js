@@ -54,6 +54,7 @@ app.use(session({
     ttl: 24 * 60 * 60
   })
 }))
+
 app.use(passport.initialize())
 app.use(passport.session())
     
