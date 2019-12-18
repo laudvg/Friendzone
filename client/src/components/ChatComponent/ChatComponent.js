@@ -16,7 +16,8 @@ class ChatComponent extends Component {
 
     // console.log(this.state.user)
     // Creamos el socket, y con ello la conexión al server
-    this.socket = io('http://192.168.97.70:3001')
+    this.socket = io('http://127.0.0.1:3001')
+    //this.socket = io('http://192.168.97.70:3001')
 
     // Creamos un ".on", el cual escucha si el server envia una lista de usuarios 
     this.socket.on('list', list => {
