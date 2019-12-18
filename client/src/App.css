@@ -14,7 +14,7 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
+	margin: auto;
 	padding: 0;
 	border: 0;
   vertical-align: baseline;
@@ -23,9 +23,6 @@ time, mark, audio, video {
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
-}
-body {
-	line-height: 1;
 }
 ol, ul {
 	list-style: none;
@@ -127,6 +124,7 @@ body{
 }
 
 .App {
+  background-image: url("./images/background.png");
   background: #f7f7f7;
   min-height: 100vh;
 }
@@ -273,4 +271,70 @@ td.contacts:hover{
   width: 30vw;
   height: 40px;
   border-bottom: 100px;
+}
+
+.login{
+  display: flex;
+  align-items: center;
+}
+
+.sign-log{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20vh;
+  height: 450px;
+  border: 4px solid white;
+  border-radius: 30px;
+}
+
+.sign-log h1{
+  color:white;
+}
+
+.tags{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 30vw;
+  border-bottom: 100px;
+  color:white;
+} 
+
+.log-page{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-image: url("./images/background.png");
+}
+
+.input-log{
+  width: 300px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.363);
+  margin-top: 10px;
+  margin-bottom: 25px;
+  padding: 3px;
+}
+
+.log-submit{
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border:0.1em solid #FFFFFF;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  text-align:center;
+  transition: all 0.2s;
+  color:purple;
+  width: 150px;
+}
+
+.log-submit:hover{
+  color:purple;
+  background-color:rgba(255, 255, 255, 0.774);
 }

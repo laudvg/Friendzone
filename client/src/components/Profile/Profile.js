@@ -30,7 +30,7 @@ class Profile extends React.Component {
           </header>
         </div>
 
-        <div className="current-user">
+        <div className="current-user back">
           <img src="profilepic" alt=" "></img>
           <h2>Hello {this.state.user}</h2>
           {/* <h3>{this.props.location.state.description}</h3> */}
