@@ -23,9 +23,9 @@ class Profile extends React.Component {
             <h3 className="App-name">Friendzone</h3>
 
             <div className="buttons-head">
-            <button className="login-button" path="/login"><Link to="/groups">Groups</Link></button>
-            <button className="signup-button" path="/quiz"><Link to="/signup">Quiz</Link></button>
-            <button className="signup-button" path="/signup"><Link to="/signup">Logout</Link></button>
+            <button className="bar-button" path="/login"><Link to="/">Home</Link></button>
+            <button className="bar-button" path="/quiz"><Link to="/quiz">Quiz</Link></button>
+            <button className="bar-button" path="/signup"><Link to="/">Logout</Link></button>
             </div>
           </header>
         </div>
