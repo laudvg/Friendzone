@@ -36,15 +36,17 @@ class Login extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <div>
-        <h1 color="black">Login</h1>
-        <form onSubmit={this.handleLogin}>
-          <label htmlFor="username">Username: </label>
-          <input type="text" name="username" value={username} onChange={this.handleChange}/>
-          <label htmlFor="password" >Password: </label>
-          <input type="password" name="password" value={password} onChange={this.handleChange}/>
-          <input type="submit" value="Login"/>
-        </form>
+      <div className="back">
+        <div className="sign-log">
+          <h1>Login</h1>
+          <form onSubmit={this.handleLogin}>
+            <label htmlFor="username">Username: </label>
+            <input type="text" name="username" value={username} onChange={this.handleChange}/>
+            <label htmlFor="password" >Password: </label>
+            <input type="password" name="password" value={password} onChange={this.handleChange}/>
+            <input type="submit" value="Login"/>
+          </form>
+        </div>
       </div>
     )
   }

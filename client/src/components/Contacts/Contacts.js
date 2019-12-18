@@ -17,20 +17,20 @@ class Contacts extends React.Component {
 
   componentDidMount() {
     this.authService.matches(this.state).then(matches => {
-      this.setState({  matches: matches });
-      // console.log(matches);
+      this.setState({matches: matches});
     })
   }
 
   render() {
     return (
+
       <div>
         <div>
           <table>
             <thead><tr><th>Matches</th></tr></thead>
             <tbody>
               {this.state.matches.map((match, i) => (<tr key={i} matches={match}>
-               <td>{match.username}</td>
+               <td><a href={match.username}>{match.username}</a></td>
               </tr>
             ))}
             </tbody>

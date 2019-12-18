@@ -42,7 +42,7 @@ class Profile extends React.Component {
         </div>
         <div>
           <h5>Chat</h5>
-          <div className="chat-container">esto<ChatComponent user={this.state.user}/></div>
+          <div className="chat-container"><ChatComponent user={this.state.user}/></div>
         </div>
       </div>
     );
