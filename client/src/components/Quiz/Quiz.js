@@ -77,19 +77,22 @@ class Quiz extends Component {
   render() {
 
     return (
-      <div>
-        <h1>Quiz</h1>
-        <h2>Hello {this.state.user.username}</h2>
-        <div>
+      <div className="q-father">
+        <div className="titles">
+          <h1>Quiz</h1>
+          <h2>Hello {this.state.user.username}!</h2>
           <div>
-            <h3>You are a</h3>
-            <Question update={this.updateIam}></Question>
-            <h3>looking to find</h3>
-            <Question update={this.updateLooking}></Question>
-          </div>
+            <div className="bars">
+              <h3>You are a</h3>
+              <div ></div>
+              <Question update={this.updateIam}></Question>
+              <h3>looking to find</h3>
+              <Question update={this.updateLooking}></Question>
+            </div>
+        </div>
           <input
             type="text"
-            className="Description"
+            className="description"
             required
             minLength="10"
             maxLength="60"
@@ -99,8 +102,8 @@ class Quiz extends Component {
             onChange={e => this.updateAbout(e)}
           ></input>
         </div>
-        <div className="quiz-father">
-          <div>
+        <div className="quiz-ranges">
+          <div className="quiz-q">
             <h3>Conventional</h3>
             <input
               name="Q1"
@@ -114,7 +117,7 @@ class Quiz extends Component {
             ></input>
             <h3>Creative</h3>
           </div>
-          <div>
+          <div className="quiz-q">
             <h3>Calm</h3>
             <input
               name="Q2"
@@ -128,7 +131,7 @@ class Quiz extends Component {
             ></input>
             <h3>Active</h3>
           </div>
-          <div>
+          <div className="quiz-q">
             <h3>Organized</h3>
             <input
               name="Q3"
@@ -142,7 +145,7 @@ class Quiz extends Component {
             ></input>
             <h3>Spontaneous</h3>
           </div>
-          <div>
+          <div className="quiz-q">
             <h3>Reserved</h3>
             <input
               name="Q4"
@@ -156,7 +159,7 @@ class Quiz extends Component {
             ></input>
             <h3>Extroverted</h3>
           </div>
-          <div>
+          <div className="quiz-q">
             <h3>Disciplined</h3>
             <input
               name="Q5"

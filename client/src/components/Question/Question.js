@@ -10,7 +10,8 @@ export default class Question extends Component {
   render() {
     return (
       <div>
-        <form className = "I-am">
+        <div class="dropdown">
+        <form className ="dropdown">
           <select onChange={(e)=>this.handleChange(e)}>
           <option defaultValue="Non">Non Specified</option>
           <option value="Female">Female</option>
@@ -18,9 +19,12 @@ export default class Question extends Component {
           </select>
         </form>
       </div>
-    )
+      </div>
+ )
+
   }
 }
+
 
 ReactDOM.render(
   <Question />,

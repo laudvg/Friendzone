@@ -338,3 +338,52 @@ td.contacts:hover{
   color:purple;
   background-color:rgba(255, 255, 255, 0.774);
 }
+
+/* quizz */
+.q-father{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 40vw;
+}
+
+.titles{
+  align-items: center;
+  flex-direction: column;
+}
+
+.bars{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.quiz-ranges{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.quiz-q {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  padding-top:20px;
+  padding-bottom: 20px;
+}
+
+.description{
+  height: 30px;
+  background-color: 10px;
+  background-color: #ffffff9c;
+  color: white;
+  border-width: 0px;
+  padding:5px;
+  padding-left: 20px;
+}
+
+.bars{
+  margin:30px;
+  
+}
+
