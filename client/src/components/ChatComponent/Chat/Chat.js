@@ -57,19 +57,20 @@ class Chat extends Component {
         <div>
           {/* Box que contiene el chat */}
           <div>
-            <div className="chatBox" id="chatBox">
-              {this.state.messages.map((elem, idx) => {
-                return (
-                  <h6 key={idx}>
-                    {elem.user} : {elem.text}
-                  </h6>
-                );
-              })}
-            </div>
-            {/* Input para nuevos mensajes */}
-            <div className="textForm">
-              <InputMess info={this.sendMessage}></InputMess>
-            </div>
+              <div className="inner-container"><Contacts user={this.state.user}></Contacts></div>
+              <div className="chatBox" id="chatBox">
+                {this.state.messages.map((elem, idx) => {
+                  return (
+                    <h6 key={idx}>
+                      {elem.user} : {elem.text}
+                    </h6>
+                  );
+                })}
+              </div>
+              {/* Input para nuevos mensajes */}
+              <div className="textForm">
+                <InputMess info={this.sendMessage}></InputMess>
+              </div>
           </div>
         </div>
       </div>
