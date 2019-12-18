@@ -44,20 +44,17 @@ router.post('/signup', (req, res, next) => {
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', (err, theUser, failureDetails) => {
     if (err) {
-      res.status(500).json({ message: 'Something went wrong authenticating user' });
-      return;
+      next(new Error("couldnt log in"))
     }
 
     if (!theUser) {
-      res.status(401).json(failureDetails);
-      return;
+      next(failureDetails)
     }
 
     // save user in session
     req.login(theUser, (err) => {
       if (err) {
-        res.status(500).json({ message: 'Session save went bad.' });
-        return;
+        next(new Error("Session save went bad.'"))
       }
       // We are now logged in (that's why we can also send req.user)
       res.status(200).json(theUser);

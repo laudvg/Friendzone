@@ -26,11 +26,10 @@ class Login extends Component {
       (user) => {
         setUser(user)
         history.push("/quiz")
-      },
-      (error) => {
-        console.error(error)
       }
-    ).then()
+    ).catch(error => {
+      history.push("/home")
+    })
   }
 
   render() {

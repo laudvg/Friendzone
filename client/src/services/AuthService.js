@@ -16,8 +16,7 @@ class AuthService {
 
   login = (user) => {
     return this.instance.post('/login', user)
-    .then(res => Promise.resolve(res.data))
-    .catch(error => console.error(error))
+    .then(res => res.data)
   }
 
   loggedInUser = () => {
