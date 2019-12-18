@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-console.log(process.env.DBURL)
+console.log(process.env.DBURLATLAS)
 mongoose
-  .connect(process.env.DBURL, {useNewUrlParser: true})
+  .connect(process.env.DBURLATLAS, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
