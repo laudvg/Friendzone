@@ -173,7 +173,7 @@ class Quiz extends Component {
             ></input>
             <h3>Relaxed</h3>
           </div>
-          <button type="button" onClick={() => this.addValueToDB()}>
+          <button className="button1" type="button" onClick={() => this.addValueToDB()}>
             Submit
           </button>
         </div>
