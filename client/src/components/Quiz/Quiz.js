@@ -84,12 +84,11 @@ class Quiz extends Component {
         </div>
         <div className="q-father">
           <div className="titles">
-            <h2>Quiz</h2>
-            <h2>Hello {this.state.user.username}!</h2>
+              <h2>Quiz</h2>
+              <h1>Hello {this.state.user.username}!</h1>
             <div>
               <div className="bars">
                 <h3>You are a</h3>
-                <div></div>
                 <Question update={this.updateIam}></Question>
                 <h3>looking to find</h3>
                 <Question update={this.updateLooking}></Question>
