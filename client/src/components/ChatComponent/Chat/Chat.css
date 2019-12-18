@@ -1,12 +1,11 @@
 .chatBox{
-  padding-top: 10px;
-  margin-top: 50px;
+  margin-top: 80px;
   height: 40vh;
-  width: 60vh;
+  width: 30vw;
   box-shadow: inset 0px 0px 5px 4px rgba(166,166,166,1);
   overflow-y: scroll;
   background-color: white;
-  border-radius: .25rem;
+  border-radius: .1rem;
 }
 
 h6{
@@ -23,8 +22,9 @@ h6{
 }
 
 #cont{
-  background-color: rgba(222, 222, 222, 0.899);
-  height: 50vh;
+  
+  background-color:rgba(116, 35, 110, 0.829);
+  height: 60vh;
 }
 
 .list-group-item{

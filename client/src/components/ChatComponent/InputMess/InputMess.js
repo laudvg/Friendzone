@@ -32,6 +32,7 @@ export default class InputMess extends Component {
                 type="text"
                 placeholder="Your message"
                 value={this.state.text}
+                className = "input-message"
               />
             </div>
     

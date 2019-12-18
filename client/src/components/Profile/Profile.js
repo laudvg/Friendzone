@@ -35,11 +35,6 @@ class Profile extends React.Component {
           <h2>Hello {this.state.user}</h2>
           {/* <h3>{this.props.location.state.description}</h3> */}
         </div>
-
-        <div className="contacts-container">
-          <div className="inner-container"></div>
-          <div className="inner-container"><Contacts user={this.state.user}></Contacts></div>
-        </div>
         <div>
           <h5>Chat</h5>
           <div className="chat-container"><ChatComponent user={this.state.user}/></div>

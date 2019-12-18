@@ -76,9 +76,8 @@ a.button1{
   }
 
 a.button1:hover{
-  color:#000000;
-  background-color:#FFFFFF;
-  color:white;
+  color:purple;
+  background-color:rgba(255, 255, 255, 0.774);
 }
 
 @media all and (max-width:30em){
@@ -241,5 +240,37 @@ img {
 
 .chat-container{
   height: 50vh;
-  width:500px
+  /* width: 700px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:100px;
+}
+
+.contacts{
+  margin-right: 100px;
+}
+
+.contacts th{
+  padding-bottom: 20px;
+}
+
+.contacts td{
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 10px;
+  width: 200px;
+  border: 1px solid white;
+
+}
+
+td.contacts:hover{
+  background-color:rgba(136, 41, 41, 0.774);
+}
+
+.input-message{
+  margin-bottom: 20px;
+  width: 30vw;
+  height: 40px;
+  border-bottom: 100px;
 }

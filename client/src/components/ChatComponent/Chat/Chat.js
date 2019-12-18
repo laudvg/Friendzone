@@ -3,7 +3,7 @@ import InputMess from "../InputMess/InputMess";
 import { withRouter } from "react-router-dom";
 import AuthService from '../../../services/AuthService';
 import './Chat.css'
-// import Contacts from "../../Contacts/Contacts";
+import Contacts from "../../Contacts/Contacts";
 // import './bootstrap/dist/css/bootstrap.min.css'
 
 
@@ -54,7 +54,8 @@ class Chat extends Component {
     console.log(this.state);
     return (
       <div id="cont">
-        <div>
+        <div className="chat-container">
+        <div><Contacts user={this.state.user}></Contacts></div>
           {/* Box que contiene el chat */}
           <div>
             <div className="chatBox" id="chatBox">

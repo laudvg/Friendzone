@@ -26,7 +26,7 @@ class Contacts extends React.Component {
 
       <div>
         <div>
-          <table>
+          <table className="contacts">
             <thead><tr><th>Matches</th></tr></thead>
             <tbody>
               {this.state.matches.map((match, i) => (<tr key={i} matches={match}>
