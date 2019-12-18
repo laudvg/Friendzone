@@ -69,7 +69,7 @@ class Quiz extends Component {
   };
 
   updateAbout = e => {
-    console.log(this.state.description)
+    // console.log(this.state.description)
     this.setState({ ...this.state, description: e.target.value });
 
   };
