@@ -229,6 +229,7 @@ img {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  height: 20px;
 }
 
 .buttons-head{
@@ -244,7 +245,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin:100px;
+  margin:10px;
 }
 
 .contacts{
@@ -272,7 +273,8 @@ td.contacts:hover{
   margin-bottom: 20px;
   width: 30vw;
   height: 40px;
-  border-bottom: 100px;
+  border-radius: 4px;
+  border: 0;
 }
 
 .login{
@@ -470,3 +472,18 @@ justify-content: space-around;
   justify-content: center;
 }
 
+
+/*profile*/
+
+.user-profile{
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./images/background.png");
+  color: white;
+}
+
+
+.current-user{
+  align-items: initial;
+  justify-content: initial;
+}

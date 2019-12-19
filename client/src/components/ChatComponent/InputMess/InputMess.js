@@ -20,7 +20,7 @@ export default class InputMess extends Component {
         this.setState({...this.state, text: ""})
     }
 
-    // Este componente renderiza el input para escribir mensajes dentro del chat
+    //renderiza el input para escribir mensajes dentro del chat
     render() {
         return (
             <div>

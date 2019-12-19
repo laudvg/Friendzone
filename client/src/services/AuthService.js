@@ -19,6 +19,11 @@ class AuthService {
     .then(res => res.data)
   }
 
+  logout = (user) => {
+    return this.instance.post('/logout', user)
+    .then(res => res.data)
+  }
+
   loggedInUser = () => {
     return this.instance.get('/loggedin')
     .then(res => Promise.resolve(res.data))
@@ -55,6 +60,11 @@ class AuthService {
     .catch(error => console.error(error))
   }
 
+  matchUser = (name) =>{
+    return this.instance.get(`/${name}`)
+    .then(res => Promise.resolve(res.data))
+    .catch(error => console.error(error))
+  }
 }
 
 export default AuthService;

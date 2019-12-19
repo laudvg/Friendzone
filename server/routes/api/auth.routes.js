@@ -63,7 +63,6 @@ router.post('/login', (req, res, next) => {
 });
 
 router.post('/logout', (req, res, next) => {
-  // req.logout() is defined by passport
   req.logout();
   res.status(200).json({ message: 'Log out success!' });
 });
@@ -117,6 +116,14 @@ router.get('/matches', (req, res, next) => {
     return;
   }
   res.status(403).json({ message: 'Unauthorized' });
+})
+
+router.get("/:user", (req, res, next) => {
+  User.findOne({username: req.params.user})
+  .then(oneUser=>{
+    res.status(200).json({oneUser})
+  })
+  .catch(error => res.status(500).json({ message: 'Something went wrong' }))
 })
 
 module.exports = router;

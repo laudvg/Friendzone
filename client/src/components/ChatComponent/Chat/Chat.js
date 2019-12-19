@@ -12,11 +12,11 @@ class Chat extends Component {
   constructor(props) {
     super(props);
     this.authService = new AuthService()
-    console.log(this.props.user);
-
+    
     this.state = {
       messages: [],
-      user: this.props.user
+      user: this.props.user,
+      averageQ: this.props.averageQ
     };
 
     // Recibimos el socket por props, se creó en ChatComponent.js
@@ -35,23 +35,21 @@ class Chat extends Component {
     if(text.trim()==="")return
     let mess = {
       text: text,
-      user: this.props.user
+      user: this.props.user,
+      value:this.props.user,
     };
-    // Este ".emit" le envia al server los mensajes que escribamos
-    // El server se encargará de propagarlos
     this.socket.emit("messageSent", mess);
   };
 
-  // Con este método nos aseguramos de que el cuadro de chat tenga siempre el scroll
-  // abajo, de esta manera el scroll no volverá arriba si el contenedor de mensajes
-  // se llena por completo
+  // Con este método el cuadro de chat tenga siempre el scroll abajo
   componentDidUpdate=()=>{
     document.getElementById('chatBox').scrollTop = document.getElementById('chatBox').scrollHeight
   }
 
   // Renderiza la lista de usuarios, el box con el chat y el input para poder escribir mensajes.
   render() {
-    console.log(this.state);
+    // console.log(this.state.user);
+    // console.log(this.state.user);
     return (
       <div id="cont">
         <div className="chat-container">
