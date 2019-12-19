@@ -4,12 +4,13 @@
   overflow-y: scroll;
   background-color: rgb(255, 255, 255);
   border-radius: .2rem;
-  color: darkgray;
+
 }
 
 h6{
   margin-left: 10px;
   text-align: left;
+  color:black;
 }
 
 .textForm{
@@ -30,4 +31,15 @@ h6{
 
 .list-group-item{
   padding: 0;
+}
+
+.hello-user{
+    margin-left: 175px;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+
+.chat-class a{
+  margin:0;
+
 }

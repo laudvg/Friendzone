@@ -261,7 +261,7 @@ img {
   padding-bottom: 6px;
   padding-left: 10px;
   width: 200px;
-  border: 1px solid white;
+  /* border: 1px solid white; */
 
 }
 
@@ -270,7 +270,7 @@ td.contacts:hover{
 }
 
 .input-message{
-  margin-bottom: 20px;
+  margin-bottom: 6px;
   width: 30vw;
   height: 40px;
   border-radius: 4px;
@@ -488,8 +488,23 @@ justify-content: space-around;
   justify-content: initial;
 }
 
-h6{
-  margin-left: 10px;
-  text-align: left;
-  color:darkgray;
+.flow-contacts{
+  display: flex;
+  padding-left: 33px;
+  padding-right: -6px;
+  justify-content: center;
+  overflow-y: scroll;
+  height: 398px;
+  background-color:rgba(255, 255, 255, 0.05);
+}
+
+.inner-chat{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+}
+
+.inner-chat h3{
+  margin-bottom: 12px;
 }

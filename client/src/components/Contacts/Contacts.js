@@ -27,7 +27,6 @@ class Contacts extends React.Component {
       <div>
         <div>
           <table className="contacts">
-            <thead><tr><th>Matches</th></tr></thead>
             <tbody>
               {this.state.matches.map((match, i) => (<tr key={i} matches={match}>
                <td><a href={`${match.username}/${match.quizValue}`}>{match.username}</a></td>

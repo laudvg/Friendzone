@@ -42,9 +42,9 @@ class Profile extends React.Component {
         </div>
 
         <div className="current-user">
-          <img src="profilepic" alt=" "></img>
-          <h2>Hello {this.state.user}</h2>
-          {/* <h3>{this.props.location.description}</h3> */}
+          {/* <img src="profilepic" alt=" "></img> */}
+          <h2 className="hello-user">Hello {this.state.user}!</h2>
+          <h3>{this.props.location.description}</h3>
         </div>
         <div>
           <div className="chat-container"><ChatComponent user={this.state.user} averageQ={this.state.averageQ}/></div>

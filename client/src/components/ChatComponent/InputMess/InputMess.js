@@ -24,7 +24,7 @@ export default class InputMess extends Component {
     render() {
         return (
             <div>
-            <div >
+            <div className="chat-class" >
               <input
                 onChange={e => {
                   this.handlerText(e);
@@ -36,7 +36,8 @@ export default class InputMess extends Component {
               />
             </div>
     
-            <button
+            <a
+            className="button1"
               variant="primary"
               type="submit"
               onClick={(e) => {
@@ -44,7 +45,7 @@ export default class InputMess extends Component {
               }}
             >
               Send
-            </button>
+            </a>
           </div>
         )
     }

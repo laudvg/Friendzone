@@ -21,8 +21,7 @@ export default class Question extends Component {
       </div>
       </div>
  )
-
-  }
+}
 }
 
 

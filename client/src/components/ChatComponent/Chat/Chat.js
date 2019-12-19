@@ -55,8 +55,10 @@ class Chat extends Component {
     return (
       <div id="cont">
         <div className="chat-container">
-        <div><Contacts user={this.state.user}></Contacts></div>
-          {/* Box que contiene el chat */}
+         <div className="inner-chat">
+        <h3>Your Matches</h3>
+        <div className="flow-contacts"><Contacts user={this.state.user}></Contacts></div>
+        </div>
           <div>
             <div className="chatBox" id="chatBox">
               {this.state.messages.map((elem, idx) => {
