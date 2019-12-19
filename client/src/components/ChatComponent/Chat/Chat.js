@@ -25,24 +25,26 @@ class Chat extends Component {
     // Creamos un ".on" que escuchará los mensajes nuevos
     this.socket.on("newMessage", message => {
       let mess = this.state.messages;
-      if(mess.value === this.state.averageQ){
+      if(Math.round(message.value +1) === Math.round(this.state.averageQ)){
       mess.push(message)
       this.setState({ ...this.state, messages: mess })
       }
+      console.log(this.state)
       console.log(mess)
+      console.log(message)
     });
   }
 
   // Este método recibe los textos que vienen del Input de los mensajes en el chat
   sendMessage = text => {
+    console.log(text)
     if(text.trim()==="")return
     let mess = {
       text: text,
       user: this.state.user,
       value:this.state.averageQ,
     };
-    this.socket.emit("messageSent", mess);
-    console.log(mess)
+    this.socket.emit("messageSent", mess)
   };
 
   // Con este método el cuadro de chat tenga siempre el scroll abajo
