@@ -26,7 +26,7 @@ class App extends React.Component {
 
   setUser = (user, description) => {
     this.setState({ ...this.state, user, description })
-    console.log(this.state.user)
+    // console.log(this.state.user)
   }
 
   fetchUser = () => {

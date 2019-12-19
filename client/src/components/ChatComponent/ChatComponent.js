@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Switch, Route, withRouter } from "react-router-dom";
 // import Intro from './Intro/Intro';
 import Chat from './Chat/Chat';
-import Contacts from "../Contacts/Contacts";
+// import Contacts from "../Contacts/Contacts";
 import io from 'socket.io-client'
 
 
@@ -49,7 +49,7 @@ class ChatComponent extends Component {
   // de esta manera el server podrá identificarnos siempre como el mismo usuario,
   // al no tener que crear una conexión distinta por componente
   render() {
-     console.log(this.state.userList)
+    //  console.log(this.state.userList)
     return (
       <div className="chat-contains">
          <Switch>

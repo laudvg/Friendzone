@@ -1,5 +1,5 @@
 import React from 'react';
-import Contacts from "../Contacts/Contacts";
+// import Contacts from "../Contacts/Contacts";
 import { Link } from 'react-router-dom'
 import AuthService from '../../services/AuthService';
 import { withRouter } from "react-router-dom";
@@ -26,7 +26,7 @@ class Profile extends React.Component {
   }
   
   render() {
-    console.log(this.state.averageQ)
+    // console.log(this.state.averageQ)
     return (
       <div className="user-profile">
         <div>
