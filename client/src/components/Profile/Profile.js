@@ -26,7 +26,7 @@ class Profile extends React.Component {
   }
   
   render() {
-    // console.log(this.state.averageQ)
+    console.log(this.state.user)
     return (
       <div className="user-profile">
         <div>
@@ -34,9 +34,9 @@ class Profile extends React.Component {
             <h3 className="App-name">Friendzone</h3>
             <div className="bar-tres">
             <div className="buttons-head">
-            <a className="nav-a" path="/login"><Link to="/">Home</Link></a>
-            <a className="nav-a" path="/quiz"><Link to="/quiz">Quiz</Link></a>
-            <a className="nav-a" onClick={()=> this.logout()}>Logout</a>
+            <button className="nav-a" path="/login"><Link to="/">Home</Link></button>
+            <button className="nav-a" path="/quiz"><Link to="/quiz">Quiz</Link></button>
+            <button className="nav-a" onClick={()=> this.logout()}>Logout</button>
             </div>
             </div>
           </header>

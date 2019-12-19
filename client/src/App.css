@@ -350,7 +350,6 @@ td.contacts:hover{
   flex-direction: column;
   width: 100vw;
   height: 93vh;
-  background-image: url("./images/background.png");
   color: white;
 }
 
@@ -363,6 +362,13 @@ td.contacts:hover{
 
 .titles h2{
   padding:10px;
+  margin-left: -220px;
+}
+
+.titles h1{
+  padding: 0px;
+  margin-left: -211px;
+  font-size: 37px;
 }
 
 
@@ -393,10 +399,11 @@ td.contacts:hover{
 }
 
 .bars{
-  margin:30px; 
-  padding: 10px;
+  margin: 15px;
+  padding: 43px;
+  padding-left: 0px;
   display: flex;
-  align-items: center;
+  align-items: center
 }
 
 .bars h3{

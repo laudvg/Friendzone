@@ -11,10 +11,12 @@ export default class InputMess extends Component {
     }
 
     handlerText=(e)=>{
+      console.log(`handlerText: ${e.target.value}`)
         this.setState({...this.state, text: e.target.value})
     }
 
     handlerSubmit=(e)=>{
+      console.log(`handlerSubmit: ${this.state.text}`)
         e.preventDefault()
         this.props.info(this.state.text)
         this.setState({...this.state, text: ""})
@@ -36,8 +38,8 @@ export default class InputMess extends Component {
               />
             </div>
     
-            <a
-            className="button1 chatbtn"
+            <button
+            className="button1"
               variant="primary"
               type="submit"
               onClick={(e) => {
@@ -45,7 +47,7 @@ export default class InputMess extends Component {
               }}
             >
               Send
-            </a>
+            </button>
           </div>
         )
     }

@@ -50,6 +50,7 @@ class ChatComponent extends Component {
   // al no tener que crear una conexión distinta por componente
   render() {
     //  console.log(this.state.userList)
+    console.log(this.state.user)
     return (
       <div className="chat-contains">
          <Switch>

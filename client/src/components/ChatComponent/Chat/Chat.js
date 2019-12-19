@@ -29,6 +29,7 @@ class Chat extends Component {
       mess.push(message)
       this.setState({ ...this.state, messages: mess })
       }
+      console.log(mess)
     });
   }
 
@@ -37,26 +38,27 @@ class Chat extends Component {
     if(text.trim()==="")return
     let mess = {
       text: text,
-      user: this.props.user.username,
-      value:this.props.user.quizValue,
+      user: this.state.user,
+      value:this.state.averageQ,
     };
     this.socket.emit("messageSent", mess);
+    console.log(mess)
   };
 
   // Con este método el cuadro de chat tenga siempre el scroll abajo
   componentDidUpdate=()=>{
-    document.getElementById('chatBox').scrollTop = document.getElementById('chatBox').scrollHeight
+    document.getElementById('chatBox').scrollTop = document.getElementById('chatBox').scrollHeight;
   }
 
   // Renderiza la lista de usuarios, el box con el chat y el input para poder escribir mensajes.
   render() {
-    // console.log(this.state.user);
-    // console.log(this.state.user);
+    console.log(this.props);
+    console.log(this.state.user);
     return (
       <div id="cont">
         <div className="chat-container">
          <div className="inner-chat">
-        <h3>Your Matches</h3>
+        <h3>YourMatches</h3>
         <div className="flow-contacts"><Contacts user={this.state.user}></Contacts></div>
         </div>
           <div>

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Question from "../Question/Question";
 import AuthService from "../../services/AuthService.js";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 class Quiz extends Component {
   constructor(props) {
@@ -73,14 +73,18 @@ class Quiz extends Component {
 
   render() {
     return (
-      <div>
+      <div className="user-profile">
         <div>
-          <nav className="quiz-bar">
-            <ul>
-              <li>Friendzone</li>
-              <li>Go back</li>
-            </ul>
-          </nav>
+          <header className="private-header">
+            <h3 className="App-name">Friendzone</h3>
+            <div className="bar-tres">
+            <div className="buttons-head">
+            <button className="nav-a" path="/login"><Link to="/">Home</Link></button>
+            <button className="nav-a" path="/quiz"><Link to="/quiz">Quiz</Link></button>
+            <button className="nav-a" onClick={()=> this.logout()}>Logout</button>
+            </div>
+            </div>
+          </header>
         </div>
         <div className="q-father">
           <div className="titles">
@@ -177,13 +181,13 @@ class Quiz extends Component {
               ></input>
               <h3>Relaxed</h3>
             </div>
-            <a
+            <button
               className="button1"
               type="button"
               onClick={() => this.addValueToDB()}
             >
               Submit
-            </a>
+            </button>
           </div>
         </div>
       </div>
