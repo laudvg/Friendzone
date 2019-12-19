@@ -26,7 +26,6 @@ class App extends React.Component {
 
   setUser = (user, description) => {
     this.setState({ ...this.state, user, description })
-    // console.log(this.state.user)
   }
 
   fetchUser = () => {
@@ -56,7 +55,6 @@ class App extends React.Component {
       
       <div className="App">
         <Route exact path="/" render={() =><Home></Home>}></Route>
-        {/* <header className="App-header"></header> */}
           <div>
             {user && <Switch>
               <Route exact path="/quiz" render={(match) => <Quiz {...match} user={user} description={description}/> }/>

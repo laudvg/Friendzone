@@ -487,3 +487,9 @@ justify-content: space-around;
   align-items: initial;
   justify-content: initial;
 }
+
+h6{
+  margin-left: 10px;
+  text-align: left;
+  color:darkgray;
+}

@@ -25,8 +25,10 @@ class Chat extends Component {
     // Creamos un ".on" que escuchará los mensajes nuevos
     this.socket.on("newMessage", message => {
       let mess = this.state.messages;
-      mess.push(message);
-      this.setState({ ...this.state, messages: mess });
+      if(mess.value === this.state.averageQ){
+      mess.push(message)
+      this.setState({ ...this.state, messages: mess })
+      }
     });
   }
 
@@ -35,8 +37,8 @@ class Chat extends Component {
     if(text.trim()==="")return
     let mess = {
       text: text,
-      user: this.props.user,
-      value:this.props.user,
+      user: this.props.user.username,
+      value:this.props.user.quizValue,
     };
     this.socket.emit("messageSent", mess);
   };

@@ -7,24 +7,24 @@ export default class MatchProf extends Component {
     this.authService = new AuthService()
     this.state = {
       matchName:this.props.match.params.matchName,
-      // matchValue:this.props.match.params.matchName
+      quizValue:this.props.match.params.quizValue,
     }
   }
 
   componentDidMount(){
-    this.authService.matchUser(this.props.match.params.matchName)
-    .then(userMatched => console.log(userMatched))
-    console.log(this.props.match)
+   this.authService.matchUser(this.props.match.params.matchName)
+  .then(userMatched => this.setState({
+    ...this.state, quizValue: userMatched.oneUser.quizValue
+  }))
   }
 
   render() {
-    console.log(this.props.match.params.matchName) //userMatched.oneUser.username
+    // console.log(this.props.match.params.matchName)
     return (
       <div>
-  <h1>This is {this.state.matchName}</h1>
-  <h1>She is a {this.state.matchName}</h1>
-  <h6>But don't judge a book by it's cover</h6>
-
+        <h1>This is {this.state.matchName}</h1>
+        <h1>Is a {this.state.quizValue}</h1>
+        <h6>But don't judge a book by it's cover</h6>
       </div>
     )
   }

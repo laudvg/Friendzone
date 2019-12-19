@@ -6,7 +6,7 @@ class Contacts extends React.Component {
     super(props);
     this.authService = new AuthService();
     this.state.user = props.user.username;
-    // console.log(props.user);
+    this.state.quizValue = props.user.quizValue;
   }
   authService = null;
 
@@ -30,7 +30,7 @@ class Contacts extends React.Component {
             <thead><tr><th>Matches</th></tr></thead>
             <tbody>
               {this.state.matches.map((match, i) => (<tr key={i} matches={match}>
-               <td><a href={match.username}>{match.username}</a></td>
+               <td><a href={`${match.username}/${match.quizValue}`}>{match.username}</a></td>
               </tr>
             ))}
             </tbody>
