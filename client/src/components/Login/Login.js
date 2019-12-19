@@ -26,25 +26,26 @@ class Login extends Component {
       (user) => {
         setUser(user)
         history.push("/quiz")
-      },
-      (error) => {
-        console.error(error)
       }
-    ).then()
+    ).catch(error => {
+      history.push("/home")
+    })
   }
 
   render() {
     const { username, password } = this.state;
     return (
-      <div className="back">
+      <div className= "log-page">
         <div className="sign-log">
           <h1>Login</h1>
           <form onSubmit={this.handleLogin}>
-            <label htmlFor="username">Username: </label>
-            <input type="text" name="username" value={username} onChange={this.handleChange}/>
-            <label htmlFor="password" >Password: </label>
-            <input type="password" name="password" value={password} onChange={this.handleChange}/>
-            <input type="submit" value="Login"/>
+            <div className="tags">
+              <label htmlFor="username">Username: </label>
+              <input className="input-log" type="text" name="username" value={username} onChange={this.handleChange}/>
+              <label htmlFor="password" >Password: </label>
+              <input className="input-log" type="password" name="password" value={password} onChange={this.handleChange}/>
+              <input class="log-submit" type="submit" value="Login"/>
+            </div>
           </form>
         </div>
       </div>

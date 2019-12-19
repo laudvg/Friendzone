@@ -3,8 +3,6 @@ const passport = require('passport');
 const router = express.Router();
 const User = require("../../models/User");
 const uploader = require('../../configs/cloudinary.configs')
-
-// Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
@@ -44,36 +42,30 @@ router.post('/signup', (req, res, next) => {
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', (err, theUser, failureDetails) => {
     if (err) {
-      res.status(500).json({ message: 'Something went wrong authenticating user' });
-      return;
+      next(new Error("couldnt log in"))
     }
 
     if (!theUser) {
-      res.status(401).json(failureDetails);
-      return;
+      next(failureDetails)
     }
 
     // save user in session
     req.login(theUser, (err) => {
       if (err) {
-        res.status(500).json({ message: 'Session save went bad.' });
-        return;
+        next(new Error("Session save went bad.'"))
       }
-      // We are now logged in (that's why we can also send req.user)
       res.status(200).json(theUser);
     });
   })(req, res, next);
 });
 
 router.post('/logout', (req, res, next) => {
-  // req.logout() is defined by passport
   req.logout();
   res.status(200).json({ message: 'Log out success!' });
 });
 
 
 router.get('/loggedin', (req, res, next) => {
-  // req.isAuthenticated() is defined by passport
   if (req.isAuthenticated()) {
     res.status(200).json(req.user);
     return;
@@ -120,6 +112,14 @@ router.get('/matches', (req, res, next) => {
     return;
   }
   res.status(403).json({ message: 'Unauthorized' });
+})
+
+router.get("/:user", (req, res, next) => {
+  User.findOne({username: req.params.user})
+  .then(oneUser=>{
+    res.status(200).json({oneUser})
+  })
+  .catch(error => res.status(500).json({ message: 'Something went wrong' }))
 })
 
 module.exports = router;

@@ -1,17 +1,16 @@
 .chatBox{
-  padding-top: 10px;
-  margin-top: 50px;
-  height: 40vh;
-  width: 60vh;
-  box-shadow: inset 0px 0px 5px 4px rgba(166,166,166,1);
+  margin-top: 37px;
+  height: 39vh;
   overflow-y: scroll;
-  background-color: white;
-  border-radius: .25rem;
+  background-color: rgb(255, 255, 255);
+  border-radius: .2rem;
+
 }
 
 h6{
   margin-left: 10px;
   text-align: left;
+  color:black;
 }
 
 .textForm{
@@ -23,10 +22,25 @@ h6{
 }
 
 #cont{
-  background-color: rgba(222, 222, 222, 0.899);
-  height: 50vh;
+  padding: 20px;
+  background-color: rgba(116, 35, 110, 0.829);
+  height: 66vh;
+  width: 858px;
+  border-radius: 60px;
 }
 
 .list-group-item{
   padding: 0;
+}
+
+.hello-user{
+  margin-left: 175px;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  font-size: 35px;
+}
+
+a.button1.chatbtn{
+  margin:0;
+  margin-top: 5px;
 }

@@ -3,7 +3,7 @@ import InputMess from "../InputMess/InputMess";
 import { withRouter } from "react-router-dom";
 import AuthService from '../../../services/AuthService';
 import './Chat.css'
-// import Contacts from "../../Contacts/Contacts";
+import Contacts from "../../Contacts/Contacts";
 // import './bootstrap/dist/css/bootstrap.min.css'
 
 
@@ -12,11 +12,11 @@ class Chat extends Component {
   constructor(props) {
     super(props);
     this.authService = new AuthService()
-    console.log(this.props.user);
-
+    
     this.state = {
       messages: [],
-      user: this.props.user
+      user: this.props.user,
+      averageQ: this.props.averageQ
     };
 
     // Recibimos el socket por props, se creó en ChatComponent.js
@@ -25,37 +25,44 @@ class Chat extends Component {
     // Creamos un ".on" que escuchará los mensajes nuevos
     this.socket.on("newMessage", message => {
       let mess = this.state.messages;
-      mess.push(message);
-      this.setState({ ...this.state, messages: mess });
+      if(Math.round(message.value +1) === Math.round(this.state.averageQ)){
+      mess.push(message)
+      this.setState({ ...this.state, messages: mess })
+      }
+      console.log(this.state)
+      console.log(mess)
+      console.log(message)
     });
   }
 
   // Este método recibe los textos que vienen del Input de los mensajes en el chat
   sendMessage = text => {
+    console.log(text)
     if(text.trim()==="")return
     let mess = {
       text: text,
-      user: this.props.user
+      user: this.state.user,
+      value:this.state.averageQ,
     };
-    // Este ".emit" le envia al server los mensajes que escribamos
-    // El server se encargará de propagarlos
-    this.socket.emit("messageSent", mess);
+    this.socket.emit("messageSent", mess)
   };
 
-  // Con este método nos aseguramos de que el cuadro de chat tenga siempre el scroll
-  // abajo, de esta manera el scroll no volverá arriba si el contenedor de mensajes
-  // se llena por completo
+  // Con este método el cuadro de chat tenga siempre el scroll abajo
   componentDidUpdate=()=>{
-    document.getElementById('chatBox').scrollTop = document.getElementById('chatBox').scrollHeight
+    document.getElementById('chatBox').scrollTop = document.getElementById('chatBox').scrollHeight;
   }
 
   // Renderiza la lista de usuarios, el box con el chat y el input para poder escribir mensajes.
   render() {
-    console.log(this.state);
+    console.log(this.props);
+    console.log(this.state.user);
     return (
       <div id="cont">
-        <div>
-          {/* Box que contiene el chat */}
+        <div className="chat-container">
+         <div className="inner-chat">
+        <h3>YourMatches</h3>
+        <div className="flow-contacts"><Contacts user={this.state.user}></Contacts></div>
+        </div>
           <div>
             <div className="chatBox" id="chatBox">
               {this.state.messages.map((elem, idx) => {

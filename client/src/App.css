@@ -14,7 +14,7 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
+	margin: auto;
 	padding: 0;
 	border: 0;
   vertical-align: baseline;
@@ -23,9 +23,6 @@ time, mark, audio, video {
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
-}
-body {
-	line-height: 1;
 }
 ol, ul {
 	list-style: none;
@@ -76,9 +73,8 @@ a.button1{
   }
 
 a.button1:hover{
-  color:#000000;
-  background-color:#FFFFFF;
-  color:white;
+  color:purple;
+  background-color:rgba(255, 255, 255, 0.774);
 }
 
 @media all and (max-width:30em){
@@ -128,6 +124,7 @@ body{
 }
 
 .App {
+  background-image: url("./images/background.png");
   background: #f7f7f7;
   min-height: 100vh;
 }
@@ -185,12 +182,13 @@ img {
 .slider {
   -webkit-appearance: none;
   width: 150px;
-  height: 25px;
+  height: 10px;
   background: #d3d3d3;
   outline: none;
   opacity: 0.7;
   -webkit-transition: .2s;
   transition: opacity .2s;
+  border-radius: 5px;
 }
 
 .slider:hover {
@@ -200,8 +198,9 @@ img {
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
+  border-radius:10px;
   background: #FFD700;
   cursor: pointer;
 }
@@ -230,6 +229,7 @@ img {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  height: 35px;
 }
 
 .buttons-head{
@@ -241,5 +241,293 @@ img {
 
 .chat-container{
   height: 50vh;
-  width:500px
+  /* width: 700px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin:10px;
+}
+
+.contacts{
+  margin-right: 100px;
+}
+
+.contacts th{
+  padding-bottom: 20px;
+}
+
+.contacts td{
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 10px;
+  width: 200px;
+  /* border: 1px solid white; */
+
+}
+
+td.contacts:hover{
+  background-color:rgba(136, 41, 41, 0.774);
+}
+
+.input-message{
+  color:black;
+  margin-bottom: 6px;
+  width: 30vw;
+  height: 40px;
+  border-radius: 4px;
+  border: 0;
+}
+
+.login{
+  display: flex;
+  align-items: center;
+}
+
+.sign-log{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20vh;
+  height: 450px;
+  border: 4px solid white;
+  border-radius: 30px;
+}
+
+.sign-log h1{
+  color:white;
+}
+
+.tags{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 30vw;
+  border-bottom: 100px;
+  color:white;
+} 
+
+.log-page{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-image: url("./images/background.png");
+}
+
+.input-log{
+  width: 300px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.363);
+  margin-top: 10px;
+  margin-bottom: 25px;
+  padding: 3px;
+}
+
+.log-submit{
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border:0.1em solid #FFFFFF;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  text-align:center;
+  transition: all 0.2s;
+  color:purple;
+  width: 150px;
+}
+
+.log-submit:hover{
+  color:purple;
+  background-color:rgba(255, 255, 255, 0.774);
+}
+
+/* quizz */
+.q-father{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 93vh;
+  color: white;
+}
+
+.titles{
+  align-items: center;
+  flex-direction: column;
+  width:100vh;
+  margin:0;
+}
+
+.titles h2{
+  padding:10px;
+  margin-left: -220px;
+}
+
+.titles h1{
+  padding: 0px;
+  margin-left: -211px;
+  font-size: 37px;
+}
+
+
+.quiz-ranges{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.quiz-q {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: row;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.description{
+  height: 30px;
+  background-color: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: white;
+  border-width: 0px;
+  padding:5px;
+  padding-left: 20px;
+}
+
+.bars{
+  margin: 15px;
+  padding: 43px;
+  padding-left: 0px;
+  display: flex;
+  align-items: center
+}
+
+.bars h3{
+  padding: 10px;
+}
+
+.dropdown select{
+  width: 180px;
+  color:rgb(93, 66, 214);
+  background-color: rgba(255, 255, 255, 0.521);
+  border-radius: 3px;
+  height: 28px;
+}
+
+.dropdown:hover{
+  width: 180px;
+  color:rgb(93, 66, 214);
+  background-color: rgba(255, 255, 255, 0.521);
+  border-radius: 3px;
+  height: 28px;
+}
+
+.button1{
+  display:inline-block;
+  padding:0.35em 1.2em;
+  border:0.1em solid #FFFFFF;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:#FFFFFF;
+  text-align:center;
+  transition: all 0.2s;
+  color:white;
+  width: 150px;
+  margin-top: 10px
+  }
+
+.button1:hover{
+  color:purple;
+  background-color:rgba(255, 255, 255, 0.774);
+}
+
+@media all and (max-width:30em){
+.button1{
+  display:block;
+  margin:0.4em auto;
+  text-decoration: none;
+  color:white;
+  }
+}
+
+.quiz-bar{
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.75);
+  display:flex;
+  justify-content: space-around;
+}
+
+.quiz-bar ul{
+  display: flex;
+}
+
+.quiz-bar li{
+align-items: center;
+justify-content: space-around;
+}
+
+.quiz-q h3{
+  min-width: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+
+/*profile*/
+
+.user-profile{
+  width: 100vw;
+  height: 100vh;
+  background-image: url("./images/background.png");
+  color: white;
+}
+
+
+.current-user{
+  align-items: initial;
+  justify-content: initial;
+}
+
+.flow-contacts{
+  display: flex;
+  padding-left: 33px;
+  padding-right: -6px;
+  justify-content: center;
+  overflow-y: scroll;
+  height: 398px;
+  background-color:rgba(255, 255, 255, 0.05);
+}
+
+.inner-chat{
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ flex-direction: column;
+}
+
+.inner-chat h3{
+  margin-bottom: 12px;
+}
+
+.App-name{
+  margin-left: 50px;
+}
+
+.nav-a {
+  padding-left: 22px;
+  padding-right: 50px;
+  margin-right: -10px
+}
+
+.buttons-head{
+  position: fixed;
+  margin-left: 135px;
 }
