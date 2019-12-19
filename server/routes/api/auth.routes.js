@@ -3,8 +3,6 @@ const passport = require('passport');
 const router = express.Router();
 const User = require("../../models/User");
 const uploader = require('../../configs/cloudinary.configs')
-
-// Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 10;
 
@@ -56,7 +54,6 @@ router.post('/login', (req, res, next) => {
       if (err) {
         next(new Error("Session save went bad.'"))
       }
-      // We are now logged in (that's why we can also send req.user)
       res.status(200).json(theUser);
     });
   })(req, res, next);
@@ -69,7 +66,6 @@ router.post('/logout', (req, res, next) => {
 
 
 router.get('/loggedin', (req, res, next) => {
-  // req.isAuthenticated() is defined by passport
   if (req.isAuthenticated()) {
     res.status(200).json(req.user);
     return;
