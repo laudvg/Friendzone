@@ -34,12 +34,13 @@ h6{
 }
 
 .hello-user{
-    margin-left: 175px;
-    margin-bottom: 50px;
-    margin-top: 20px;
+  margin-left: 175px;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  font-size: 35px;
 }
 
-.chat-class a{
+a.button1.chatbtn{
   margin:0;
-
+  margin-top: 5px;
 }

@@ -37,7 +37,7 @@ export default class InputMess extends Component {
             </div>
     
             <a
-            className="button1"
+            className="button1 chatbtn"
               variant="primary"
               type="submit"
               onClick={(e) => {

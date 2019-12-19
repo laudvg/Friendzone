@@ -32,11 +32,12 @@ class Profile extends React.Component {
         <div>
           <header className="private-header">
             <h3 className="App-name">Friendzone</h3>
+            <div className="bar-tres">
             <div className="buttons-head">
-            <button className="bar-button" path="/login"><Link to="/">Home</Link></button>
-            <button className="bar-button" path="/quiz"><Link to="/quiz">Quiz</Link></button>
-            {/* <button className="bar-button" path="/signup"><Link to="/">Logout</Link></button> */}
-            <button className="bar-button" onClick={()=> this.logout()}>Logout</button>
+            <a className="nav-a" path="/login"><Link to="/">Home</Link></a>
+            <a className="nav-a" path="/quiz"><Link to="/quiz">Quiz</Link></a>
+            <a className="nav-a" onClick={()=> this.logout()}>Logout</a>
+            </div>
             </div>
           </header>
         </div>

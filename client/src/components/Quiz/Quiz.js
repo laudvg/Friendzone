@@ -177,13 +177,13 @@ class Quiz extends Component {
               ></input>
               <h3>Relaxed</h3>
             </div>
-            <button
+            <a
               className="button1"
               type="button"
               onClick={() => this.addValueToDB()}
             >
               Submit
-            </button>
+            </a>
           </div>
         </div>
       </div>
