@@ -25,13 +25,17 @@ class Chat extends Component {
     // Creamos un ".on" que escuchará los mensajes nuevos
     this.socket.on("newMessage", message => {
       let mess = this.state.messages;
-      if(Math.round(message.value) === Math.round(this.state.averageQ)){
+      let user1 = Math.ceil(message.value);
+      let user2 = Math.ceil(this.state.averageQ);
+      if(user1 === user2){
       mess.push(message)
       this.setState({ ...this.state, messages: mess })
       }
-      console.log(this.state)
-      console.log(mess)
-      console.log(message)
+      // console.log(this.state)
+      // console.log(mess)
+      // console.log(message)
+      console.log(message.value);
+      console.log(this.state.averageQ);
     });
   }
 

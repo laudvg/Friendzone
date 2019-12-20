@@ -8,8 +8,8 @@ class Home extends Component {
         <div className="home">
           <h1 className="home-title">Friendzone</h1>
             <div className= "two-buttons">
-              <a href="/login" className="button1"><Link to="/login">Login</Link></a>
-              <a href="/login" className="button1"><Link to="/signup">Sign Up</Link></a>
+              <button href="/login" className="button1"><Link to="/login">Login</Link></button>
+              <button href="/login" className="button1"><Link to="/signup">Sign Up</Link></button>
             </div>
         </div>
       </div>
