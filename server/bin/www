@@ -65,6 +65,5 @@ io.on("connection", socket => {
     socket.emit("newMessage", message);
     socket.broadcast.emit("newMessage", message);
   });
-  console.log(message);
 
 });
