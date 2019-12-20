@@ -81,7 +81,7 @@ class Quiz extends Component {
             <div className="buttons-head">
             <button className="nav-a" path="/login"><Link to="/">Home</Link></button>
             <button className="nav-a" path="/quiz"><Link to="/quiz">Quiz</Link></button>
-            <button className="nav-a" onClick={()=> this.logout()}>Logout</button>
+            <button className="nav-a" path="/" onClick={()=> this.logout()}><Link to="/quiz">Logout</Link></button>
             </div>
             </div>
           </header>

@@ -40,6 +40,9 @@ table {
 	border-spacing: 0;
 }
 
+button{
+ background-color: transparent;
+}
 /* home */
 
 .app-all{
@@ -522,12 +525,44 @@ justify-content: space-around;
 }
 
 .nav-a {
-  padding-left: 22px;
-  padding-right: 50px;
-  margin-right: -10px
+  background-color: #ffffff33;
+  color: white;
+  border-color: transparent;
+  padding-left: 27px;
+  padding-right: 25px;
+  margin-left: 22px;
 }
 
 .buttons-head{
   position: fixed;
   margin-left: 135px;
+}
+
+.final{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 132vh;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 100vw 119vh;
+}
+
+.text-user{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+  margin:10px;
+  letter-spacing: 2px;
+}
+
+.text-user h1{
+  margin:10px;
+}
+
+.text-user button{
+  margin:50px;
 }
